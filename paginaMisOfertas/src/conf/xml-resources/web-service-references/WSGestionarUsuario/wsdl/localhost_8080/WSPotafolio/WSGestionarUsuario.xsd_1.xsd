@@ -1,0 +1,279 @@
+<?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI (http://jax-ws.java.net). RI's version is Metro/2.3.2-b608 (trunk-7979; 2015-01-21T12:50:19+0000) JAXWS-RI/2.2.11-b150120.1832 JAXWS-API/2.2.12 JAXB-RI/2.2.12-b141219.1637 JAXB-API/2.2.13-b141020.1521 svn-revision#unknown. --><xs:schema xmlns:tns="http://service.portafolio.com/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://service.portafolio.com/">
+
+<xs:element name="comprobarNombreUsuario" type="tns:comprobarNombreUsuario"/>
+
+<xs:element name="comprobarNombreUsuarioResponse" type="tns:comprobarNombreUsuarioResponse"/>
+
+<xs:element name="comprobarsiExisteEmail" type="tns:comprobarsiExisteEmail"/>
+
+<xs:element name="comprobarsiExisteEmailResponse" type="tns:comprobarsiExisteEmailResponse"/>
+
+<xs:element name="devolverIdUsuario" type="tns:devolverIdUsuario"/>
+
+<xs:element name="devolverIdUsuarioResponse" type="tns:devolverIdUsuarioResponse"/>
+
+<xs:element name="devolverNivelUsuario" type="tns:devolverNivelUsuario"/>
+
+<xs:element name="devolverNivelUsuarioResponse" type="tns:devolverNivelUsuarioResponse"/>
+
+<xs:element name="eliminarUsuario" type="tns:eliminarUsuario"/>
+
+<xs:element name="eliminarUsuarioResponse" type="tns:eliminarUsuarioResponse"/>
+
+<xs:element name="ingresarUsuario" type="tns:ingresarUsuario"/>
+
+<xs:element name="ingresarUsuarioResponse" type="tns:ingresarUsuarioResponse"/>
+
+<xs:element name="listarInformacionCompletaDelUsuariosPorCorreoClave" type="tns:listarInformacionCompletaDelUsuariosPorCorreoClave"/>
+
+<xs:element name="listarInformacionCompletaDelUsuariosPorCorreoClaveResponse" type="tns:listarInformacionCompletaDelUsuariosPorCorreoClaveResponse"/>
+
+<xs:element name="listarInformacionCompletaDelUsuariosPorUsuarioClave" type="tns:listarInformacionCompletaDelUsuariosPorUsuarioClave"/>
+
+<xs:element name="listarInformacionCompletaDelUsuariosPorUsuarioClaveResponse" type="tns:listarInformacionCompletaDelUsuariosPorUsuarioClaveResponse"/>
+
+<xs:element name="listarInformacionCompletaTodosLosUsuarios" type="tns:listarInformacionCompletaTodosLosUsuarios"/>
+
+<xs:element name="listarInformacionCompletaTodosLosUsuariosResponse" type="tns:listarInformacionCompletaTodosLosUsuariosResponse"/>
+
+<xs:element name="listarUsuarios" type="tns:listarUsuarios"/>
+
+<xs:element name="listarUsuariosPorNivel" type="tns:listarUsuariosPorNivel"/>
+
+<xs:element name="listarUsuariosPorNivelResponse" type="tns:listarUsuariosPorNivelResponse"/>
+
+<xs:element name="listarUsuariosPorRangoDePuntos" type="tns:listarUsuariosPorRangoDePuntos"/>
+
+<xs:element name="listarUsuariosPorRangoDePuntosResponse" type="tns:listarUsuariosPorRangoDePuntosResponse"/>
+
+<xs:element name="listarUsuariosResponse" type="tns:listarUsuariosResponse"/>
+
+<xs:element name="modificarUsuario" type="tns:modificarUsuario"/>
+
+<xs:element name="modificarUsuarioResponse" type="tns:modificarUsuarioResponse"/>
+
+<xs:element name="retornarUltimoIDUsuario" type="tns:retornarUltimoIDUsuario"/>
+
+<xs:element name="retornarUltimoIDUsuarioResponse" type="tns:retornarUltimoIDUsuarioResponse"/>
+
+<xs:element name="validarUsuarioPorNombreUsuarioUCorreo" type="tns:validarUsuarioPorNombreUsuarioUCorreo"/>
+
+<xs:element name="validarUsuarioPorNombreUsuarioUCorreoResponse" type="tns:validarUsuarioPorNombreUsuarioUCorreoResponse"/>
+
+<xs:complexType name="retornarUltimoIDUsuario">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="retornarUltimoIDUsuarioResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="validarUsuarioPorNombreUsuarioUCorreo">
+<xs:sequence>
+<xs:element name="usuarioUCorreo" type="xs:string" minOccurs="0"/>
+<xs:element name="claveUsuario" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="validarUsuarioPorNombreUsuarioUCorreoResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:boolean"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="listarInformacionCompletaDelUsuariosPorUsuarioClave">
+<xs:sequence>
+<xs:element name="nombreUsuario" type="xs:string" minOccurs="0"/>
+<xs:element name="claveUsuario" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="listarInformacionCompletaDelUsuariosPorUsuarioClaveResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:personaUsuario" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="personaUsuario">
+<xs:sequence>
+<xs:element name="email" type="xs:string" minOccurs="0"/>
+<xs:element name="idUsuarioPersona" type="xs:int"/>
+<xs:element name="nivelUsuario" type="xs:int"/>
+<xs:element name="primerApellido" type="xs:string" minOccurs="0"/>
+<xs:element name="primerNombre" type="xs:string" minOccurs="0"/>
+<xs:element name="puntosAcumulados" type="xs:int"/>
+<xs:element name="rut" type="xs:string" minOccurs="0"/>
+<xs:element name="segundoApellido" type="xs:string" minOccurs="0"/>
+<xs:element name="segundoNombre" type="xs:string" minOccurs="0"/>
+<xs:element name="urlImagen" type="xs:string" minOccurs="0"/>
+<xs:element name="usuario" type="xs:string" minOccurs="0"/>
+<xs:element name="usuarioID" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="comprobarNombreUsuario">
+<xs:sequence>
+<xs:element name="nombreUsuario" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="comprobarNombreUsuarioResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:boolean"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="modificarUsuario">
+<xs:sequence>
+<xs:element name="nombreUsuario" type="xs:string" minOccurs="0"/>
+<xs:element name="claveUsuario" type="xs:string" minOccurs="0"/>
+<xs:element name="emailUsuario" type="xs:string" minOccurs="0"/>
+<xs:element name="puntosAcumulados" type="xs:int"/>
+<xs:element name="nivelUsuario" type="xs:int"/>
+<xs:element name="urlImagenUsuario" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="modificarUsuarioResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:boolean"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="listarUsuarios">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="listarUsuariosResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:usuario" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="usuario">
+<xs:sequence>
+<xs:element name="clave" type="xs:string" minOccurs="0"/>
+<xs:element name="email" type="xs:string" minOccurs="0"/>
+<xs:element name="idUsuario" type="xs:int"/>
+<xs:element name="nivelUsuario" type="xs:int"/>
+<xs:element name="puntosAcumulados" type="xs:int"/>
+<xs:element name="urlImagen" type="xs:string" minOccurs="0"/>
+<xs:element name="usuario" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="comprobarsiExisteEmail">
+<xs:sequence>
+<xs:element name="emailUsuario" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="comprobarsiExisteEmailResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:boolean"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="listarUsuariosPorNivel">
+<xs:sequence>
+<xs:element name="nivelUsuario" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="listarUsuariosPorNivelResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:usuario" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="devolverIdUsuario">
+<xs:sequence>
+<xs:element name="correoUNombre" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="devolverIdUsuarioResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="listarUsuariosPorRangoDePuntos">
+<xs:sequence>
+<xs:element name="rangoInicial" type="xs:int"/>
+<xs:element name="rangoFinal" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="listarUsuariosPorRangoDePuntosResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:usuario" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="devolverNivelUsuario">
+<xs:sequence>
+<xs:element name="correoUNombre" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="devolverNivelUsuarioResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="eliminarUsuario">
+<xs:sequence>
+<xs:element name="nombreUsuario" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="eliminarUsuarioResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:boolean"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="listarInformacionCompletaDelUsuariosPorCorreoClave">
+<xs:sequence>
+<xs:element name="correoUsuario" type="xs:string" minOccurs="0"/>
+<xs:element name="claveUsuario" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="listarInformacionCompletaDelUsuariosPorCorreoClaveResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:personaUsuario" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="ingresarUsuario">
+<xs:sequence>
+<xs:element name="nombreUsuario" type="xs:string" minOccurs="0"/>
+<xs:element name="claveUsuario" type="xs:string" minOccurs="0"/>
+<xs:element name="emailUsuario" type="xs:string" minOccurs="0"/>
+<xs:element name="puntosAcumulados" type="xs:int"/>
+<xs:element name="nivelUsuario" type="xs:int"/>
+<xs:element name="urlImagenUsuario" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="ingresarUsuarioResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:boolean"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="listarInformacionCompletaTodosLosUsuarios">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="listarInformacionCompletaTodosLosUsuariosResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:personaUsuario" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+</xs:schema>
