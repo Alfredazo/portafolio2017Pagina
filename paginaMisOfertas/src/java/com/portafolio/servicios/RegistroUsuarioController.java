@@ -94,7 +94,13 @@ public class RegistroUsuarioController {
                 errorPersona = true;
                 mensajeRut = "El rut es incorrecto";
             } else {
-                rutDevuelta = rut;
+                if (comprobarSiExisteRut(rut)) {
+                    mensajeRut = "El rut  ya existe en la bd";
+                }else{
+                    rutDevuelta = rut;
+                }
+                
+                
             }
         }
 
@@ -217,6 +223,7 @@ public class RegistroUsuarioController {
             mavErrores.addObject("errorFechaN", mensajeFecha);
             mavErrores.addObject("errorDireccion", mensajeDireccion);
             mavErrores.addObject("errorTelefono", mensajeTelefono);
+           
 
             mavErrores.addObject("nombreValue", nombreDevuelta);
             mavErrores.addObject("emailValue", mensajeDevuelta);
@@ -313,6 +320,14 @@ public class RegistroUsuarioController {
         com.portafolio.modelo.WSGestionarPersona port = service.getWSGestionarPersonaPort();
         return port.ingresarPersona(rut, primerNombre, segundoNombre, primerApellido, segundoApellido, fechaNacimiento, direccion, telefono, idUsuario);
     }
+
+    private static boolean comprobarSiExisteRut(java.lang.String rut) {
+        com.portafolio.modelo.WSGestionarPersona_Service service = new com.portafolio.modelo.WSGestionarPersona_Service();
+        com.portafolio.modelo.WSGestionarPersona port = service.getWSGestionarPersonaPort();
+        return port.comprobarSiExisteRut(rut);
+    }
+
+   
 
     
   

@@ -31,7 +31,7 @@
             <div class="navbar-collapse collapse" id="navbar">
                 <ul class="nav navbar-nav">
                     <li class="active">
-                        <a aria-expanded="false" role="button" href="layouts.html">Inicio</a>
+                        <a aria-expanded="false" role="button" href="home.htm">Inicio</a>
                     </li>
                     <li class="dropdown">
                         <a aria-expanded="false" role="button" href="#" class="dropdown-toggle" data-toggle="dropdown"> Destacados </a>
@@ -54,10 +54,10 @@
                     <li class="dropdown">
                         <a aria-expanded="false" role="button" href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user-circle-o"></i><span class="caret"></span></a>
                         <ul role="menu" class="dropdown-menu">
-                            <li><a href=""><i class="fa fa-address-book-o"></i> Crear Cuenta</a></li>
-                            <li><a href=""><i class="fa fa-user-o"></i> Perfil</a></li>
-                            <li><a href=""><i class="fa fa-sign-out"></i> Iniciar sesión </a></li>
-                            <li><a href=""><i class="fa fa-sign-in"></i> Cerrar sesión</a></li>
+                            <li><a href="registrar.htm"><i class="fa fa-address-book-o"></i> Crear Cuenta</a></li>
+                            <li><a href="#"><i class="fa fa-user-o"></i> Perfil</a></li>
+                            <li><a href="login.htm"><i class="fa fa-sign-out"></i> Iniciar sesión </a></li>
+                            <li><a href="cerrarSesion.htm"><i class="fa fa-sign-in"></i> Cerrar sesión</a></li>
                         </ul>
                     </li>
                 </ul>
