@@ -154,12 +154,7 @@
 
                 </div>
 
-            </div>
-            <div class="footer">
-                <div>
-                    <strong></strong> Grupo 1&copy; 2017
-                </div>
-            </div>
+            </div>           
         </div>
 
 
