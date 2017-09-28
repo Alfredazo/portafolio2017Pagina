@@ -1,5 +1,9 @@
 <?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI (http://jax-ws.java.net). RI's version is Metro/2.3.2-b608 (trunk-7979; 2015-01-21T12:50:19+0000) JAXWS-RI/2.2.11-b150120.1832 JAXWS-API/2.2.12 JAXB-RI/2.2.12-b141219.1637 JAXB-API/2.2.13-b141020.1521 svn-revision#unknown. --><xs:schema xmlns:tns="http://service.portafolio.com/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://service.portafolio.com/">
 
+<xs:element name="comprobarSiExisteRut" type="tns:comprobarSiExisteRut"/>
+
+<xs:element name="comprobarSiExisteRutResponse" type="tns:comprobarSiExisteRutResponse"/>
+
 <xs:element name="eliminarPersona" type="tns:eliminarPersona"/>
 
 <xs:element name="eliminarPersonaResponse" type="tns:eliminarPersonaResponse"/>
@@ -39,6 +43,18 @@
 </xs:complexType>
 
 <xs:complexType name="ingresarPersonaResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:boolean"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="comprobarSiExisteRut">
+<xs:sequence>
+<xs:element name="rut" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="comprobarSiExisteRutResponse">
 <xs:sequence>
 <xs:element name="return" type="xs:boolean"/>
 </xs:sequence>
