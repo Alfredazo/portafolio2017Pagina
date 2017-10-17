@@ -74,5 +74,21 @@
         <delete dir="${build.generated.sources.dir}/jax-ws/com/portafolio/modelo"/>
         <delete dir="${build.generated.dir}/jax-wsCache/WSGestionarPersona"/>
     </target>
-    <target name="wsimport-client-generate" depends="wsimport-client-WSGestionarProducto, wsimport-client-WSGestionarUsuario, wsimport-client-WSGestionarPersona"/>
+    <target name="wsimport-client-WSGestionarEmpresa" depends="wsimport-init">
+        <mkdir dir="${build.generated.dir}/jax-wsCache/WSGestionarEmpresa"/>
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/WSGestionarEmpresa" destdir="${build.generated.dir}/jax-wsCache/WSGestionarEmpresa" wsdl="${basedir}/${conf-dir}xml-resources/web-service-references/WSGestionarEmpresa/wsdl/localhost_8080/WSPotafolio/WSGestionarEmpresa.wsdl" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" fork="false" wsdlLocation="http://localhost:8080/WSPotafolio/WSGestionarEmpresa?wsdl" xnocompile="true" xendorsed="true" package="com.portafolio.empresaService">
+            <depends file="${basedir}/${conf-dir}xml-resources/web-service-references/WSGestionarEmpresa/wsdl/localhost_8080/WSPotafolio/WSGestionarEmpresa.wsdl"/>
+            <produces dir="${build.generated.dir}/jax-wsCache/WSGestionarEmpresa"/>
+        </wsimport>
+        <copy todir="${build.generated.sources.dir}/jax-ws">
+            <fileset dir="${build.generated.dir}/jax-wsCache/WSGestionarEmpresa">
+                <include name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+    <target name="wsimport-client-clean-WSGestionarEmpresa" depends="-init-project">
+        <delete dir="${build.generated.sources.dir}/jax-ws/com/portafolio/empresaService"/>
+        <delete dir="${build.generated.dir}/jax-wsCache/WSGestionarEmpresa"/>
+    </target>
+    <target name="wsimport-client-generate" depends="wsimport-client-WSGestionarProducto, wsimport-client-WSGestionarUsuario, wsimport-client-WSGestionarPersona, wsimport-client-WSGestionarEmpresa"/>
 </project>

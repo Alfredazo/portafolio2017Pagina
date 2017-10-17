@@ -6,4 +6,6 @@
     <system systemId="http://localhost:8080/WSPotafolio/WSGestionarPersona?xsd=1" uri="wsdl/localhost_8080/WSPotafolio/WSGestionarPersona.xsd_1.xsd"/>
     <system systemId="http://localhost:8080/WSPotafolio/WSGestionarProducto?wsdl" uri="wsdl/localhost_8080/WSPotafolio/WSGestionarProducto.wsdl"/>
     <system systemId="http://localhost:8080/WSPotafolio/WSGestionarProducto?xsd=1" uri="wsdl/localhost_8080/WSPotafolio/WSGestionarProducto.xsd_1.xsd"/>
+    <system systemId="http://localhost:8080/WSPotafolio/WSGestionarEmpresa?wsdl" uri="wsdl/localhost_8080/WSPotafolio/WSGestionarEmpresa.wsdl"/>
+    <system systemId="http://localhost:8080/WSPotafolio/WSGestionarEmpresa?xsd=1" uri="wsdl/localhost_8080/WSPotafolio/WSGestionarEmpresa.xsd_1.xsd"/>
 </catalog>

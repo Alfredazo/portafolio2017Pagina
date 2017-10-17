@@ -120,7 +120,6 @@
 
                     </div>
                         <div class="ibox-content">
-
                             <table class="footable table table-stripped toggle-arrow-tiny">
                                 <thead>
                                 <tr>

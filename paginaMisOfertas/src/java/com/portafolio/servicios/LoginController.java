@@ -5,6 +5,7 @@
  */
 package com.portafolio.servicios;
 
+import com.portafolio.empresaService.Empresa;
 import java.util.ArrayList;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -48,10 +49,14 @@ public class LoginController {
                     return new ModelAndView("redirect:/consumidor.htm");
                 case 1:
                     /*Encargado de Tienda*/
+                    ArrayList<Empresa> listadox;
+                    listadox = (ArrayList<Empresa>) listarEmpresas();
+                    sesion.setAttribute("listadoEmpresas", listadox);
+
                     sesion.setAttribute("nombre", email);
                     sesion.setAttribute("nivelUsuarioSesion", nivelUsuario);
 
-                    return new ModelAndView("redirect:/encargado.htm");
+                    return new ModelAndView("redirect:/mantenedorEmpresa.htm");
                 case 2:
                     /*Gerente*/
                     sesion.setAttribute("nombre", email);
@@ -60,10 +65,7 @@ public class LoginController {
                     return new ModelAndView("redirect:/gerente.htm");
 
                 case 3:
-                    /*Administrador*/
-                    ArrayList<PersonaUsuario> listado = new ArrayList<PersonaUsuario>();
-                    listado = (ArrayList<PersonaUsuario>) listarInformacionCompletaTodosLosUsuarios();
-                    sesion.setAttribute("listadoPersonas", listado);
+                    /*Administrador*/                   
                     sesion.setAttribute("nombre", email);
                     sesion.setAttribute("nivelUsuarioSesion", nivelUsuario);
 
@@ -83,8 +85,6 @@ public class LoginController {
         }
     }
 
-   
-
     private static boolean validarUsuarioPorNombreUsuarioUCorreo(java.lang.String usuarioUCorreo, java.lang.String claveUsuario) {
         com.portafolio.servicios.WSGestionarUsuario_Service service = new com.portafolio.servicios.WSGestionarUsuario_Service();
         com.portafolio.servicios.WSGestionarUsuario port = service.getWSGestionarUsuarioPort();
@@ -101,6 +101,12 @@ public class LoginController {
         com.portafolio.servicios.WSGestionarUsuario_Service service = new com.portafolio.servicios.WSGestionarUsuario_Service();
         com.portafolio.servicios.WSGestionarUsuario port = service.getWSGestionarUsuarioPort();
         return port.listarInformacionCompletaTodosLosUsuarios();
+    }
+
+    private static java.util.List<com.portafolio.empresaService.Empresa> listarEmpresas() {
+        com.portafolio.empresaService.WSGestionarEmpresa_Service service = new com.portafolio.empresaService.WSGestionarEmpresa_Service();
+        com.portafolio.empresaService.WSGestionarEmpresa port = service.getWSGestionarEmpresaPort();
+        return port.listarEmpresas();
     }
 
 }
