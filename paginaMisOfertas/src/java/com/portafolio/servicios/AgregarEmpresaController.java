@@ -31,7 +31,7 @@ public class AgregarEmpresaController {
     }
 
     @RequestMapping(method = RequestMethod.POST)
-    public ModelAndView registrarEmpresa(HttpServletRequest request) {
+    public ModelAndView registrarEmpresa(HttpServletRequest request,HttpSession sesion) {
         boolean errorGeneral = false;
         String nombre = request.getParameter("nombreEmpresa");
         String nombreError = "";
@@ -46,7 +46,7 @@ public class AgregarEmpresaController {
         String descripcion = request.getParameter("descripcion");
         String descripcionError = "";
         String descripDev="";
-        if (descripcionError.isEmpty()) {
+        if (descripcion.isEmpty()) {
             descripcionError = "La dirección no debe venir vacia";
             errorGeneral = true;
         }else{
@@ -72,7 +72,7 @@ public class AgregarEmpresaController {
         String rolEmpresa = request.getParameter("rolEmpresa");
         String rolError = "";
         String rolDev ="";
-        if (rolError.isEmpty()) {
+        if (rolEmpresa.isEmpty()) {
             rolError = "El rol no debe venir vacio";
             errorGeneral = true;
         }else{
@@ -82,7 +82,7 @@ public class AgregarEmpresaController {
         String rutEmpresa = request.getParameter("rutEmpresa");
         String rutEmpresaError = "";
         String rutDev="";
-        if (rutEmpresaError.isEmpty()) {
+        if (rutEmpresa.isEmpty()) {
             rutEmpresaError = "El rut no debe venir vacio";
             errorGeneral = true;
         }else{
@@ -100,25 +100,31 @@ public class AgregarEmpresaController {
             return new ModelAndView("redirect:/mantenedorEmpresa.htm");
         }else{
             /*Mandar a La pagina con la lista de errores*/
-            /*Este trozo de codigo esta malo hay que arreglar para que cumpla la condicion*/
+            /*Este trozo de codigo esta malo hay que arreglar para que cumpla la condicion*/            
+            ModelAndView mav = new ModelAndView();
+            int nivelUsuario = (int) sesion.getAttribute("nivelUsuarioSesion");
+            if (nivelUsuario == 1) {
+                mav.setViewName("encargado/mantenedorEmpresa");
+            }else{
+                mav.setViewName("administrador/mantenedorEmpresa");
+            }
             
-//            ModelAndView mav = new ModelAndView();
-//            mav.setViewName("home.htm");
-//            mav.addObject("nombreError", nombreError);
-//            mav.addObject("descripcionError", descripcionError);
-//            mav.addObject("tipoEmpresaError", tipoEmpresaError);
-//            mav.addObject("activoError", activoError);
-//            mav.addObject("rolError", rolError);
-//            mav.addObject("rutEmpresaError", rutEmpresaError);    
-//            /*Devolver Valores correctos en caso de error*/
-//            mav.addObject("nombreDev", nombreDev);
-//            mav.addObject("descripDev", descripDev);
-//            mav.addObject("nombreDev", nombreDev);
-//            mav.addObject("rolDev", rolDev);
-//            mav.addObject("rutDev", rutDev);
-//            
-//            return mav;
-            return new ModelAndView("redirect:/home.htm");
+            mav.addObject("nombreError", nombreError);
+            mav.addObject("descripcionError", descripcionError);
+            mav.addObject("tipoEmpresaError", tipoEmpresaError);
+            mav.addObject("activoError", activoError);
+            mav.addObject("rolError", rolError);
+            mav.addObject("rutEmpresaError", rutEmpresaError);    
+            /*Devolver Valores correctos en caso de error*/
+            mav.addObject("nombreDev", nombreDev);
+            mav.addObject("descripDev", descripDev);
+            mav.addObject("nombreDev", nombreDev);
+            mav.addObject("rolDev", rolDev);
+            mav.addObject("rutDev", rutDev);
+            mav.addObject("errorGeneral", "Error al agregar Empresa. Revise los Campos Porfavor");
+            
+            return mav;
+//            return new ModelAndView("redirect:/home.htm");
             
         }
                 
