@@ -26,7 +26,7 @@ public class MantenedorUsuarioController {
                 mav.setViewName("administrador/mantenedorUsuario");                
                 ArrayList<PersonaUsuario> listado;
                 PersonaUsuario dato = null;
-                listado = (ArrayList<PersonaUsuario>) sesion.getAttribute("listadoPersonas");
+                listado = (ArrayList<PersonaUsuario>) listarInformacionCompletaTodosLosUsuarios();
 
                 mav.addObject("nombreSesion", nombre);
                 mav.addObject("listadoPersonas", listado);
@@ -50,4 +50,12 @@ public class MantenedorUsuarioController {
         System.out.println("modificar");
         return new ModelAndView("redirect:/mantenedorEmpresa.htm");
     }
+
+    private static java.util.List<com.portafolio.servicios.PersonaUsuario> listarInformacionCompletaTodosLosUsuarios() {
+        com.portafolio.servicios.WSGestionarUsuario_Service service = new com.portafolio.servicios.WSGestionarUsuario_Service();
+        com.portafolio.servicios.WSGestionarUsuario port = service.getWSGestionarUsuarioPort();
+        return port.listarInformacionCompletaTodosLosUsuarios();
+    }
+    
+    
 }

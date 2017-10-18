@@ -199,48 +199,50 @@
             </div>
         </div>
 
-
         <div id="modal-agregar" class="modal fade" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-body">
                         <div class="row">
                             <div><h3 class="m-t-none m-b">Agregar Empresa</h3>
-                                <form role="form">
-
+                                <form role="form"  method="post" action="agregarEmpresa.htm">
                                     <div class="form-group">
-                                        <input type="email" class="form-control" placeholder="Nombre" required="">
+                                        <input type="text" class="form-control" placeholder="Nombre" required="" name="nombreEmpresa" value="<c:out value="${nombreDev}"/>">
+                                        <c:out value="${nombreError}"/>
                                     </div>
                                     <div class="form-group">
-                                        <input type="password" class="form-control" placeholder="Descripcion" required="">
+                                        <input type="text" class="form-control" placeholder="Descripcion" required="" name="descripcion"  value="<c:out value="${descripDev}"/>">
+                                        <c:out value="${descripcionError}"/>
                                     </div>
-
                                     <div class="form-group">
-                                        <select class="form-control m-b" name="account">
-                                            <option selected="selected" >Tipo Empresa</option>   
-                                            <option>Compañia LTDA</option>
-                                            <option>Sociedad Anonima</option>
-
+                                        <c:out value="${tipoEmpresaError}"/>
+                                        <select class="form-control m-b" name="tipoEmpresa">
+                                            <option value="0" selected="selected" >Tipo Empresa</option>   
+                                            <option value="1">Compañia LTDA</option>
+                                            <option value="2">Sociedad Anonima</option>
                                         </select>
                                     </div>
 
                                     <div class="form-group">
-                                        <input type="text" class="form-control" placeholder="Activo" required="">
-                                    </div>
+                                        <c:out value="${activoError}"/>
+                                        <select class="form-control m-b" name="empresaActiva">
+                                            <option value="2" selected="selected" >Empresa Activa</option>   
+                                            <option value="1">SI</option>
+                                            <option value="0">NO</option>
+                                        </select>
+                                    </div>                                  
+
                                     <div class="form-group">
-                                        <input type="text" class="form-control" placeholder="Producto" required="">
-                                    </div>
-                                    <div class="form-group">
-                                        <input type="text" class="form-control" placeholder="ROL" required="">
+                                        <input type="text" class="form-control" placeholder="ROL" required="" name="rolEmpresa" value="<c:out value="${rolDev}"/>">
+                                        <c:out value="${rolError}"/>
                                     </div>
 
                                     <div class="form-group">
-                                        <input type="text" class="form-control" placeholder="RUT
-                                               " required="">
+                                        <input type="text" class="form-control" placeholder="RUT" required="" name="rutEmpresa" value="<c:out value="${rutDev}"/>">
+                                        <c:out value="${rutEmpresaError}"/>
                                     </div>
-                                    <div class="text-right">
-                                        <a class="btn btn-primary" href="">Agregar </a>
-                                    </div>
+
+                                    <input class="btn btn-primary" type="submit" value="Agregar Empresa">
 
                                 </form>
                             </div>

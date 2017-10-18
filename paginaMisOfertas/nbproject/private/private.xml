@@ -2,6 +2,18 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/C:/Users/Alfredazo/Desktop/portafolio2017Pagina/paginaMisOfertas/web/WEB-INF/jsp/administrador/mantenedorEmpresa.jsp</file>
+            <file>file:/C:/Users/Alfredazo/Desktop/portafolio2017Pagina/paginaMisOfertas/web/WEB-INF/dispatcher-servlet.xml</file>
+            <file>file:/C:/Users/Alfredazo/Desktop/portafolio2017Pagina/paginaMisOfertas/src/java/com/portafolio/servicios/AdminsitradorController.java</file>
+            <file>file:/C:/Users/Alfredazo/Desktop/portafolio2017Pagina/paginaMisOfertas/src/java/com/portafolio/servicios/EncargadoController.java</file>
+            <file>file:/C:/Users/Alfredazo/Desktop/portafolio2017Pagina/paginaMisOfertas/src/java/com/portafolio/servicios/MantenedorUsuarioController.java</file>
+            <file>file:/C:/Users/Alfredazo/Desktop/portafolio2017Pagina/paginaMisOfertas/src/java/com/portafolio/servicios/LoginController.java</file>
+            <file>file:/C:/Users/Alfredazo/Desktop/portafolio2017Pagina/paginaMisOfertas/web/WEB-INF/applicationContext.xml</file>
+            <file>file:/C:/Users/Alfredazo/Desktop/portafolio2017Pagina/paginaMisOfertas/web/WEB-INF/jsp/encargado/mantenedorEmpresa.jsp</file>
+            <file>file:/C:/Users/Alfredazo/Desktop/portafolio2017Pagina/paginaMisOfertas/web/WEB-INF/jsp/administrador/administrador.jsp</file>
+            <file>file:/C:/Users/Alfredazo/Desktop/portafolio2017Pagina/paginaMisOfertas/src/java/com/portafolio/servicios/MantenedorEmpresaController.java</file>
+            <file>file:/C:/Users/Alfredazo/Desktop/portafolio2017Pagina/paginaMisOfertas/web/WEB-INF/jsp/administrador/mantenedorUsuario.jsp</file>
+        </group>
     </open-files>
 </project-private>

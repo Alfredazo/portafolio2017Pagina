@@ -35,6 +35,11 @@
                 <prop key="registrar.htm">registroUsuarioController</prop>
                 <prop key="eliminarUsuario.htm">eliminarUsuarioController</prop>
                 <prop key="modificarUsuario.htm">mantenedorUsuarioController</prop>
+                
+                
+                <prop key="agregarEmpresa.htm">agregarEmpresaController</prop>
+                
+                
 
             </props>
         </property>
@@ -91,5 +96,9 @@
     
      <bean id="eliminarUsuarioController"
           class="com.portafolio.servicios.EliminarUsuarioController"
+    />
+     
+    <bean id="agregarEmpresaController"
+          class="com.portafolio.servicios.AgregarEmpresaController"
     />
 </beans>
