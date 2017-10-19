@@ -96,8 +96,26 @@ public class AgregarEmpresaController {
         }
 
         if (errorGeneral == false) {
-            /*Agregar A la BD*/
-            return new ModelAndView("redirect:/mantenedorEmpresa.htm");
+            /*Agregar A la BD*/                       
+            ModelAndView mav = new ModelAndView();
+            int nivelUsuario = (int) sesion.getAttribute("nivelUsuarioSesion");
+            if (nivelUsuario == 1) {
+                mav.setViewName("encargado/mantenedorEmpresa");
+            }else{
+                mav.setViewName("administrador/mantenedorEmpresa");
+            }
+            String activoPaso="";
+            if (activo==1) {
+                activoPaso ="1";
+            }else{
+                activoPaso ="0";
+            }               
+            ingresarEmpresa(nombre, descripcion, tipoEmpresa, activoPaso, rolEmpresa, rutEmpresa);
+            
+            mav.addObject("errorGeneral", "Se ha agregado Correctamente");
+                   
+            
+            return mav;
         }else{
             /*Mandar a La pagina con la lista de errores*/
             /*Este trozo de codigo esta malo hay que arreglar para que cumpla la condicion*/            
@@ -152,6 +170,12 @@ public class AgregarEmpresaController {
         } catch (Exception e) {
         }
         return validacion;
+    }
+
+    private static boolean ingresarEmpresa(java.lang.String nombre, java.lang.String descripcion, int idTipoEmpresa, java.lang.String activo, java.lang.String rol, java.lang.String rutEmpresa) {
+        com.portafolio.empresaService.WSGestionarEmpresa_Service service = new com.portafolio.empresaService.WSGestionarEmpresa_Service();
+        com.portafolio.empresaService.WSGestionarEmpresa port = service.getWSGestionarEmpresaPort();
+        return port.ingresarEmpresa(nombre, descripcion, idTipoEmpresa, activo, rol, rutEmpresa);
     }
     
 }
