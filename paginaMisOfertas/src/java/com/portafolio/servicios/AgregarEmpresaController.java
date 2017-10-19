@@ -5,6 +5,8 @@
  */
 package com.portafolio.servicios;
 
+import com.portafolio.empresaService.Empresa;
+import java.util.ArrayList;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
@@ -113,8 +115,9 @@ public class AgregarEmpresaController {
             ingresarEmpresa(nombre, descripcion, tipoEmpresa, activoPaso, rolEmpresa, rutEmpresa);
             
             mav.addObject("errorGeneral", "Se ha agregado Correctamente");
-                   
-            
+                    ArrayList<Empresa> listado;
+            listado = (ArrayList<Empresa>) listarEmpresas();
+            sesion.setAttribute("listadoEmpresas", listado);            
             return mav;
         }else{
             /*Mandar a La pagina con la lista de errores*/
@@ -176,6 +179,12 @@ public class AgregarEmpresaController {
         com.portafolio.empresaService.WSGestionarEmpresa_Service service = new com.portafolio.empresaService.WSGestionarEmpresa_Service();
         com.portafolio.empresaService.WSGestionarEmpresa port = service.getWSGestionarEmpresaPort();
         return port.ingresarEmpresa(nombre, descripcion, idTipoEmpresa, activo, rol, rutEmpresa);
+    }
+
+    private static java.util.List<com.portafolio.empresaService.Empresa> listarEmpresas() {
+        com.portafolio.empresaService.WSGestionarEmpresa_Service service = new com.portafolio.empresaService.WSGestionarEmpresa_Service();
+        com.portafolio.empresaService.WSGestionarEmpresa port = service.getWSGestionarEmpresaPort();
+        return port.listarEmpresas();
     }
     
 }

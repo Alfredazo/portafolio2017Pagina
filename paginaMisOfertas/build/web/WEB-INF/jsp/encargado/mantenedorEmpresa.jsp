@@ -115,12 +115,12 @@
                                     <h5>Mantenimiento de Empresas</h5>
                                     <div class="text-right">
                                         <a data-toggle="modal" class="btn btn-primary" href="#modal-agregar">Agregar Empresa</a>
-                                    </div>
-
+                                        <a data-toggle="modal" class="btn btn-primary" href="#modal-modificar">Modificar Empresa</a>
+                                    </div>                                
                                 </div>
                                 <c:out value="${errorGeneral}"/>
                                 <div class="ibox-content">
-                                    <table class="footable table table-stripped toggle-arrow-tiny">
+                                    <table class="footable table table-stripped toggle-arrow-tiny" name="tabEmpresa">
                                         <thead>
                                             <tr>                                             
                                                 <th data-hide="all">ID</th>
@@ -138,7 +138,9 @@
                                             <!-- Aqui va el metodo Foreach -->
                                             <c:forEach items="${listadoEmpresas}" var="map" >
                                                 <tr>
-                                                    <td>${map.idEmpresa}</td>
+                                                    <td>
+                                                        ${map.idEmpresa}                                                              
+                                                    </td>
                                                     <td>${map.nombre}</td>
                                                     <td>${map.descripcion}</td>
                                                     <td>
@@ -159,15 +161,13 @@
                                                         </c:if>
                                                     </td>                                     
                                                     <td>${map.rol}</td>
-                                                    <td>${map.rutEmpresa}</td>
-                                                    <td><div class="btn-group">
-                                                            <button data-toggle="dropdown" class="btn btn-primary dropdown-toggle">Acción <span class="caret"></span></button>
-                                                            <ul class="dropdown-menu">
-                                                                <li><a data-toggle="modal" href="#modal-Modificar">Modificar</a></li>
-                                                                <li class="divider"></li>
-                                                                <li><a data-toggle="modal" href="#modal-eliminar">Eliminar</a></li>
-                                                            </ul>
-                                                        </div>
+                                                    <td>${map.rutEmpresa}</td>                                                 
+                                                    <td>
+                                                        <form action="eliminarEmpresa.htm" method="POST">
+                                                            <input type="hidden" value="${map.idEmpresa}" name="idEmpresaEscondido">
+                                                            <button type="submit" value="${map.idEmpresa}" class="btn btn-primary dropdown-toggle">Eliminar</button>
+                                                        </form>  
+                                                    </td>
                                                 </tr>
                                             </c:forEach>
                                         </tbody>
@@ -252,72 +252,56 @@
             </div>
         </div>
 
-        <div id="modal-Modificar" class="modal fade" aria-hidden="true">
+        <div id="modal-modificar" class="modal fade" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-body">
                         <div class="row">
                             <div><h3 class="m-t-none m-b">Modificar Empresa</h3>
-                                <form role="form">
-
+                                <form role="form"  method="post" action="modificarEmpresa.htm">
+                                    <select class="form-control m-b" name="idEmpresaModi">
+                                        <option value="-1" selected="selected" >ID EMPRESA</option>   
+                                        <c:forEach items="${listadoEmpresas}" var="map" >
+                                            <option value="${map.idEmpresa}">${map.nombre}</option>          
+                                        </c:forEach>
+                                    </select>
                                     <div class="form-group">
-                                        <input type="email" class="form-control" placeholder="Nombre" required="">
+                                        <input type="text" class="form-control" placeholder="Nombre" required="" name="nombreEmpresa" value="<c:out value="${nombreDev}"/>">
+                                        <c:out value="${nombreError}"/>
                                     </div>
                                     <div class="form-group">
-                                        <input type="password" class="form-control" placeholder="Descripcion" required="">
+                                        <input type="text" class="form-control" placeholder="Descripcion" required="" name="descripcion"  value="<c:out value="${descripDev}"/>">
+                                        <c:out value="${descripcionError}"/>
                                     </div>
-
                                     <div class="form-group">
-                                        <select class="form-control m-b" name="account">
-                                            <option selected="selected" >Tipo Empresa</option>   
-                                            <option>Compañia LTDA</option>
-                                            <option>Sociedad Anonima</option>
-
+                                        <c:out value="${tipoEmpresaError}"/>
+                                        <select class="form-control m-b" name="tipoEmpresa">
+                                            <option value="0" selected="selected" >Tipo Empresa</option>   
+                                            <option value="1">Compañia LTDA</option>
+                                            <option value="2">Sociedad Anonima</option>
                                         </select>
                                     </div>
 
                                     <div class="form-group">
-                                        <input type="text" class="form-control" placeholder="Activo" required="">
-                                    </div>
-                                    <div class="form-group">
-                                        <input type="text" class="form-control" placeholder="Producto" required="">
-                                    </div>
-                                    <div class="form-group">
-                                        <input type="text" class="form-control" placeholder="ROL" required="">
-                                    </div>
+                                        <c:out value="${activoError}"/>
+                                        <select class="form-control m-b" name="empresaActiva">
+                                            <option value="2" selected="selected" >Empresa Activa</option>   
+                                            <option value="1">SI</option>
+                                            <option value="0">NO</option>
+                                        </select>
+                                    </div>                                  
 
                                     <div class="form-group">
-                                        <input type="text" class="form-control" placeholder="RUT
-                                               " required="">
+                                        <input type="text" class="form-control" placeholder="ROL" required="" name="rolEmpresa" value="<c:out value="${rolDev}"/>">
+                                        <c:out value="${rolError}"/>
                                     </div>
-                                    <div class="text-right">
-                                        <a class="btn btn-primary" >Modificar</a>
-                                    </div>
-
-
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div id="modal-eliminar" class="modal fade" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-body">
-                        <div class="row">
-                            <div><h3 class="m-t-none m-b">Eliminar Empresa</h3>
-                                <form role="form">
 
                                     <div class="form-group">
-                                        <input type="email" class="form-control" placeholder="ID Empresa" required="">
-                                    </div>
-                                    <div class="text-right">
-                                        <a class="btn btn-primary" href="">Eliminar</a>
+                                        <input type="text" class="form-control" placeholder="RUT" required="" name="rutEmpresa" value="<c:out value="${rutDev}"/>">
+                                        <c:out value="${rutEmpresaError}"/>
                                     </div>
 
+                                    <input class="btn btn-primary" type="submit" value="Modificar Empresa">
                                 </form>
                             </div>
                         </div>
@@ -343,3 +327,15 @@
         <!-- Page-Level Scripts -->
 
         <!-- Page-Level Scripts -->
+        <script>
+            $(function () {
+                $(".buscarIDModificar").each(function (index) {
+                    $(this).on("click", function () {
+                        var valor = $(this).val();
+                        alert(valor);
+                    });
+                });
+            });
+        </script>
+    </body>
+</html>

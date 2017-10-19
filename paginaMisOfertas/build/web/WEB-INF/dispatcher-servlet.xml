@@ -38,6 +38,8 @@
                 
                 
                 <prop key="agregarEmpresa.htm">agregarEmpresaController</prop>
+                <prop key="eliminarEmpresa.htm">eliminarEmpresaController</prop>
+                <prop key="modificarEmpresa.htm">modificarEmpresaController</prop>
                 
                 
 
@@ -70,19 +72,19 @@
     />
     
     <bean id="consumidorController"
-           class="com.portafolio.servicios.ConsumidorController"
+          class="com.portafolio.servicios.ConsumidorController"
     />
      
     <bean id="encargadoController"
-              class="com.portafolio.servicios.EncargadoController"
+          class="com.portafolio.servicios.EncargadoController"
     />
         
     <bean id="gerenteController"
-                 class="com.portafolio.servicios.GerenteController"
+          class="com.portafolio.servicios.GerenteController"
     />
     
     <bean id="cerrarSesionController"
-                 class="com.portafolio.servicios.CerrarSesionController"
+          class="com.portafolio.servicios.CerrarSesionController"
     />
     <bean id="registroUsuarioController"
           class="com.portafolio.servicios.RegistroUsuarioController"
@@ -94,11 +96,18 @@
           class="com.portafolio.servicios.MantenedorEmpresaController"
     />
     
-     <bean id="eliminarUsuarioController"
-          class="com.portafolio.servicios.EliminarUsuarioController"
+    <bean id="eliminarUsuarioController"
+           class="com.portafolio.servicios.EliminarUsuarioController"
     />
      
     <bean id="agregarEmpresaController"
           class="com.portafolio.servicios.AgregarEmpresaController"
+    />
+    
+    <bean id="eliminarEmpresaController"
+             class="com.portafolio.servicios.EliminarEmpresaController"
+    />
+    <bean id="modificarEmpresaController"
+             class="com.portafolio.servicios.ModificarEmpresaController"
     />
 </beans>
