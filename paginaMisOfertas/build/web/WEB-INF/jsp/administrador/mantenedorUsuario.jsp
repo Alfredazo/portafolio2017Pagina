@@ -50,7 +50,7 @@
                             <ul class="nav nav-second-level collapse">
                                 <li class="active"><a href="mantenedorUsuario.htm">Usuario</a></li>
                                 <li><a href="mantenedorEmpresa.htm">Empresa</a></li>
-                                <li><a href="dashboard_3.html">Producto</a></li>
+                                <li><a href="mantenedorProducto.htm">Producto</a></li>
                             </ul>
                         </li>
                     </ul>

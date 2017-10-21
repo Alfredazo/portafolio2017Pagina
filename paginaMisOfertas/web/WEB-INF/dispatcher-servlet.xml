@@ -31,7 +31,8 @@
                 <prop key="registroUsuario.htm">registroUsuarioController</prop>
                 <prop key="mantenedorUsuario.htm">mantenedorUsuarioController</prop>
                 <prop key="mantenedorEmpresa.htm">mantenedorEmpresaController</prop>
-
+                <prop key="mantenedorProducto.htm">mantenedorProductoController</prop>
+                
                 <prop key="registrar.htm">registroUsuarioController</prop>
                 <prop key="eliminarUsuario.htm">eliminarUsuarioController</prop>
                 <prop key="modificarUsuario.htm">mantenedorUsuarioController</prop>
@@ -40,6 +41,10 @@
                 <prop key="agregarEmpresa.htm">agregarEmpresaController</prop>
                 <prop key="eliminarEmpresa.htm">eliminarEmpresaController</prop>
                 <prop key="modificarEmpresa.htm">modificarEmpresaController</prop>
+                
+                <prop key="agregarProducto.htm">agregarProductoController</prop>
+                <prop key="eliminarProducto.htm">eliminarProductoController</prop>
+                <prop key="modificarProducto.htm">modificarProductoController</prop>
                 
                 
 
@@ -96,6 +101,10 @@
           class="com.portafolio.servicios.MantenedorEmpresaController"
     />
     
+    <bean id="mantenedorProductoController"
+          class="com.portafolio.servicios.MantenedorProductoController"
+    />
+    
     <bean id="eliminarUsuarioController"
            class="com.portafolio.servicios.EliminarUsuarioController"
     />
@@ -109,5 +118,16 @@
     />
     <bean id="modificarEmpresaController"
              class="com.portafolio.servicios.ModificarEmpresaController"
+    />
+   
+    <bean id="agregarProductoController"
+          class="com.portafolio.servicios.AgregarProductoController"
+    />
+    
+    <bean id="eliminarProductoController"
+             class="com.portafolio.servicios.EliminarProductoController"
+    />
+    <bean id="modificarProductoController"
+             class="com.portafolio.servicios.ModificarProductoController"
     />
 </beans>

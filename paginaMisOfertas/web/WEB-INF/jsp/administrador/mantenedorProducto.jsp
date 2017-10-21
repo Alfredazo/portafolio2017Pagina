@@ -9,7 +9,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <title>Mantenedor empresa</title>
+        <title>Mantenedor Producto</title>
 
         <link href="<c:url value="/Resources/css/bootstrap.min.css"/>" rel="stylesheet">
         <link href="<c:url value="/Resources/font-awesome/css/font-awesome.css"/>" rel="stylesheet">
@@ -50,10 +50,10 @@
                         </li>
                         <li>
                             <a href="index.html"><i class="fa fa-th-large"></i> <span class="nav-label">Mantenedores</span> <span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level collapse">
+                            <ul class="nav nav-second-level collapse"> 
                                 <li><a href="mantenedorUsuario.htm">Usuario</a></li>
-                                <li class="active"><a href="mantenedorEmpresa.htm">Empresa</a></li>
-                                <li><a href="mantenedorProducto.htm">Producto</a></li>
+                                <li><a href="mantenedorEmpresa.htm">Empresa</a></li>
+                                <li class="active"><a href="mantenedorProducto.htm">Producto</a></li>
                             </ul>
                         </li>
                     </ul>
@@ -88,7 +88,7 @@
                 </div>
                 <div class="row wrapper border-bottom white-bg page-heading">
                     <div class="col-lg-10">
-                        <h2>Mantenedor Empresa</h2>
+                        <h2>Mantenedor Producto</h2>
                         <ol class="breadcrumb">
                             <li>
                                 <a href="home.htm">Inicio</a>
@@ -97,7 +97,7 @@
                                 <a>Mantenedores</a>
                             </li>
                             <li class="active">
-                                <strong>Empresa</strong>
+                                <strong>Producto</strong>
                             </li>
                         </ol>
                     </div>
@@ -113,10 +113,10 @@
                         <div class="col-lg-12">
                             <div class="ibox float-e-margins">
                                 <div class="ibox-title">
-                                    <h5>Mantenimiento de Empresas</h5>
+                                    <h5>Mantenimiento de Producto</h5>
                                     <div class="text-right">
-                                        <a data-toggle="modal" class="btn btn-primary" href="#modal-agregar">Agregar Empresa</a>
-                                        <a data-toggle="modal" class="btn btn-primary" href="#modal-modificar">Modificar Empresa</a>
+                                        <a data-toggle="modal" class="btn btn-primary" href="#modal-agregar">Agregar Producto</a>
+                                        <a data-toggle="modal" class="btn btn-primary" href="#modal-modificar">Modificar Producto</a>
                                     </div>                                
                                 </div>
                                 <c:out value="${errorGeneral}"/>
@@ -126,47 +126,47 @@
                                             <tr>                                             
                                                 <th data-hide="all">ID</th>
                                                 <th data-hide="all">Nombre</th>
-                                                <th data-hide="all">Descripcion</th>
-                                                <th data-hide="all">ID Tipo Empresa</th>
-                                                <th data-hide="all">Activo</th>                                   
-                                                <th data-hide="all">ROL</th>
-                                                <th data-hide="all">RUT</th>
-                                                <th data-hide="all">Accion</th>
+                                                <th data-hide="all">Precio</th>
+                                                <th data-hide="all">Descripción</th>
+                                                <th data-hide="all">Fotografía</th>                                   
+                                                <th data-hide="all">Activo</th>
+                                                <th data-hide="all">Empresa</th>
+                                                <th data-hide="all">Tipo de producto</th>
+                                                <th data-hide="all">Fecha de ingreso</th>
+                                                <th data-hide="all">fecha de caducidad</th>
+                                                <th data-hide="all">Acción</th>
 
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <!-- Aqui va el metodo Foreach -->
-                                            <c:forEach items="${listadoEmpresas}" var="map" >
+                                        
+                                            <c:forEach items="${listadoProductoEmpresa}" var="map" >
                                                 <tr>
                                                     <td>
-                                                        ${map.idEmpresa}                                                              
+                                                        ${map.idProducto}                                                              
                                                     </td>
                                                     <td>${map.nombre}</td>
-                                                    <td>${map.descripcion}</td>
-                                                    <td>
-                                                        <c:if test="${map.idTipoEmpresa ==1}">
-                                                            LTDA
-                                                        </c:if>
-                                                        <c:if test="${map.idTipoEmpresa ==2}">
-                                                            S.A
-                                                        </c:if>
-
-                                                    </td>
+                                                    <td>${map.precio    }</td>
+                                                    <td>${map.descripcionProducto}</td>
+                                                    <td>${map.urlFoto}</td>
                                                     <td>
                                                         <c:if test="${map.activo ==1}">
                                                             SI
                                                         </c:if>
-                                                        <c:if test="${map.activo ==0}">
+                                                        <c:if test="${map.activo ==2}">
                                                             NO
                                                         </c:if>
-                                                    </td>                                     
-                                                    <td>${map.rol}</td>
-                                                    <td>${map.rutEmpresa}</td>                                                 
+
+                                                    </td>
+                                                    <td>${map.empresa}</td>
+                                                    <td>${map.tipoProducto}</td>
+                                                    <td>${map.fechaIngreso}</td>
+                                                    <td>${map.fechaCaducidad}</td>                                                 
                                                     <td>
-                                                        <form action="eliminarEmpresa.htm" method="POST">
-                                                            <input type="hidden" value="${map.idEmpresa}" name="idEmpresaEscondido">
-                                                            <button type="submit" value="${map.idEmpresa}" class="btn btn-primary dropdown-toggle">Eliminar</button>
+                                                        <form action="eliminarProducto.htm" method="POST">
+                                                            <input type="hidden" value="${map.idProducto}" name="idProductoEscondido">
+                                                            <button type="submit" value="${map.idProducto}" class="btn btn-primary dropdown-toggle">Eliminar</button>
                                                         </form>  
                                                     </td>
                                                 </tr>
@@ -205,45 +205,56 @@
                 <div class="modal-content">
                     <div class="modal-body">
                         <div class="row">
-                            <div><h3 class="m-t-none m-b">Agregar Empresa</h3>
-                                <form role="form"  method="post" action="agregarEmpresa.htm">
+                            <div><h3 class="m-t-none m-b">Agregar Producto</h3>
+                                <form role="form"  method="post" action="agregarProducto.htm">
                                     <div class="form-group">
-                                        <input type="text" class="form-control" placeholder="Nombre" required="" name="nombreEmpresa" value="<c:out value="${nombreDev}"/>">
+                                        <input type="text" class="form-control" placeholder="Nombre" required="" name="nombre" value="<c:out value="${nombreDev}"/>">
                                         <c:out value="${nombreError}"/>
                                     </div>
                                     <div class="form-group">
-                                        <input type="text" class="form-control" placeholder="Descripcion" required="" name="descripcion"  value="<c:out value="${descripDev}"/>">
+                                        <input type="number" class="form-control" placeholder="Precio" required="" name="precio"  value="<c:out value="${precioDev}"/>">
+                                        <c:out value="${precioError}"/>
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" placeholder="Descripcion" required="" name="descripcion" value="<c:out value="${descripcionDev}"/>">
                                         <c:out value="${descripcionError}"/>
                                     </div>
                                     <div class="form-group">
-                                        <c:out value="${tipoEmpresaError}"/>
-                                        <select class="form-control m-b" name="tipoEmpresa">
-                                            <option value="0" selected="selected" >Tipo Empresa</option>   
-                                            <option value="1">Compañia LTDA</option>
-                                            <option value="2">Sociedad Anonima</option>
-                                        </select>
+                                        <input type="text" class="form-control" placeholder="imagen" required="" name="imagen" value="">
+                                        <c:out value=""/>
                                     </div>
-
                                     <div class="form-group">
                                         <c:out value="${activoError}"/>
-                                        <select class="form-control m-b" name="empresaActiva">
-                                            <option value="2" selected="selected" >Empresa Activa</option>   
-                                            <option value="1">SI</option>
-                                            <option value="0">NO</option>
+                                        <select class="form-control m-b" name="activo">
+                                            <option value="2" selected="selected" >¿Activo?</option>   
+                                            <option value="1">Si</option>
+                                            <option value="0">No</option>
                                         </select>
-                                    </div>                                  
-
+                                    </div>
                                     <div class="form-group">
-                                        <input type="text" class="form-control" placeholder="ROL" required="" name="rolEmpresa" value="<c:out value="${rolDev}"/>">
-                                        <c:out value="${rolError}"/>
+                                        <select class="form-control m-b" name="idEmpresa">
+                                            <option value="-1" selected="selected" >Seleccione empresa</option>   
+                                            <c:forEach items="${listadoEmpresas}" var="map" >
+                                                <option value="${map.idEmpresa}">${map.nombre}</option>          
+                                            </c:forEach>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <select class="form-control m-b" name="idTipoProducto">
+                                            <option value="-1" selected="selected" >Seleccione tipo de producto</option>   
+                                            <c:forEach items="${listarTipoProducto}" var="map2" >
+                                                <option value="${map2.idProducto}">${map2.nombre}</option>          
+                                            </c:forEach>
+                                        </select>
+                                    </div>
+                                     <div class="form-group">
+                                        Fecha de caducidad:<br>
+                             
+                                        <input type="date" class="form-control" required="" name="fechaCaducidad" value="<c:out value="${fechaCaducidadDev}"/>">
+                                        <c:out value="${fechaCaducidadError}"/>
                                     </div>
 
-                                    <div class="form-group">
-                                        <input type="text" class="form-control" placeholder="RUT" required="" name="rutEmpresa" value="<c:out value="${rutDev}"/>">
-                                        <c:out value="${rutEmpresaError}"/>
-                                    </div>
-
-                                    <input class="btn btn-primary" type="submit" value="Agregar Empresa">
+                                    <input class="btn btn-primary" type="submit" value="Agregar producto">
 
                                 </form>
                             </div>
@@ -258,51 +269,68 @@
                 <div class="modal-content">
                     <div class="modal-body">
                         <div class="row">
-                            <div><h3 class="m-t-none m-b">Modificar Empresa</h3>
-                                <form role="form"  method="post" action="modificarEmpresa.htm">
-                                    <select class="form-control m-b" name="idEmpresaModi">
-                                        <option value="-1" selected="selected" >ID EMPRESA</option>   
-                                        <c:forEach items="${listadoEmpresas}" var="map" >
-                                            <option value="${map.idEmpresa}">${map.nombre}</option>          
+                            <div><h3 class="m-t-none m-b">Modificar Producto</h3>
+                                <form role="form"  method="post" action="modificarProducto.htm">
+                                    <select class="form-control m-b" name="idProductoModificar">
+                                        <option value="-1" selected="selected" >Seleccione producto</option>   
+                                        <c:forEach items="${listarProducto}" var="map" >
+                                            <option value="${map.idProducto}">${map.nombre}</option>          
                                         </c:forEach>
                                     </select>
-                                    <div class="form-group">
-                                        <input type="text" class="form-control" placeholder="Nombre" required="" name="nombreEmpresa" value="<c:out value="${nombreDev}"/>">
+                                                                        <div class="form-group">
+                                        <input type="text" class="form-control" placeholder="Nombre" required="" name="nombre" value="<c:out value="${nombreDev}"/>">
                                         <c:out value="${nombreError}"/>
                                     </div>
                                     <div class="form-group">
-                                        <input type="text" class="form-control" placeholder="Descripcion" required="" name="descripcion"  value="<c:out value="${descripDev}"/>">
+                                        <input type="number" class="form-control" placeholder="Precio" required="" name="precio"  value="<c:out value="${precioDev}"/>">
+                                        <c:out value="${precioError}"/>
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" placeholder="Descripcion" required="" name="descripcion" value="<c:out value="${descripcionDev}"/>">
                                         <c:out value="${descripcionError}"/>
                                     </div>
                                     <div class="form-group">
-                                        <c:out value="${tipoEmpresaError}"/>
-                                        <select class="form-control m-b" name="tipoEmpresa">
-                                            <option value="0" selected="selected" >Tipo Empresa</option>   
-                                            <option value="1">Compañia LTDA</option>
-                                            <option value="2">Sociedad Anonima</option>
-                                        </select>
+                                        <input type="text" class="form-control" placeholder="imagen" required="" name="imagen" value="">
+                                        <c:out value=""/>
                                     </div>
-
                                     <div class="form-group">
                                         <c:out value="${activoError}"/>
-                                        <select class="form-control m-b" name="empresaActiva">
-                                            <option value="2" selected="selected" >Empresa Activa</option>   
-                                            <option value="1">SI</option>
-                                            <option value="0">NO</option>
+                                        <select class="form-control m-b" name="activo">
+                                            <option value="2" selected="selected" >¿Activo?</option>   
+                                            <option value="1">Si</option>
+                                            <option value="0">No</option>
                                         </select>
-                                    </div>                                  
-
+                                    </div>
                                     <div class="form-group">
-                                        <input type="text" class="form-control" placeholder="ROL" required="" name="rolEmpresa" value="<c:out value="${rolDev}"/>">
-                                        <c:out value="${rolError}"/>
+                                        <select class="form-control m-b" name="idEmpresa">
+                                            <option value="-1" selected="selected" >Seleccione empresa</option>   
+                                            <c:forEach items="${listadoEmpresas}" var="map" >
+                                                <option value="${map.idEmpresa}">${map.nombre}</option>          
+                                            </c:forEach>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <select class="form-control m-b" name="idTipoProducto">
+                                            <option value="-1" selected="selected" >Seleccione tipo de producto</option>   
+                                            <c:forEach items="${listarTipoProducto}" var="map2" >
+                                                <option value="${map2.idProducto}">${map2.nombre}</option>          
+                                            </c:forEach>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        Fecha de actual:<br>
+                             
+                                        <input type="date" class="form-control" required="" name="fechaIngreso" value="<c:out value="${fechaIngresodDev}"/>">
+                                        <c:out value="${fechaIngresoError}"/>
+                                    </div>
+                                     <div class="form-group">
+                                        Fecha de caducidad:<br>
+                             
+                                        <input type="date" class="form-control" required="" name="fechaCaducidad" value="<c:out value="${fechaCaducidadDev}"/>">
+                                        <c:out value="${fechaCaducidadError}"/>
                                     </div>
 
-                                    <div class="form-group">
-                                        <input type="text" class="form-control" placeholder="RUT" required="" name="rutEmpresa" value="<c:out value="${rutDev}"/>">
-                                        <c:out value="${rutEmpresaError}"/>
-                                    </div>
-
-                                    <input class="btn btn-primary" type="submit" value="Modificar Empresa">
+                                    <input class="btn btn-primary" type="submit" value="Modificar producto">
                                 </form>
                             </div>
                         </div>

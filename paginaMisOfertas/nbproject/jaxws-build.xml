@@ -26,22 +26,6 @@
             <isset property="conf.dir"/>
         </condition>
     </target>
-    <target name="wsimport-client-WSGestionarProducto" depends="wsimport-init">
-        <mkdir dir="${build.generated.dir}/jax-wsCache/WSGestionarProducto"/>
-        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/WSGestionarProducto" destdir="${build.generated.dir}/jax-wsCache/WSGestionarProducto" wsdl="${basedir}/${conf-dir}xml-resources/web-service-references/WSGestionarProducto/wsdl/localhost_8080/WSPotafolio/WSGestionarProducto.wsdl" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" fork="false" wsdlLocation="http://localhost:8080/WSPotafolio/WSGestionarProducto?wsdl" xnocompile="true" xendorsed="true" package="com.portafolio.ws.producto">
-            <depends file="${basedir}/${conf-dir}xml-resources/web-service-references/WSGestionarProducto/wsdl/localhost_8080/WSPotafolio/WSGestionarProducto.wsdl"/>
-            <produces dir="${build.generated.dir}/jax-wsCache/WSGestionarProducto"/>
-        </wsimport>
-        <copy todir="${build.generated.sources.dir}/jax-ws">
-            <fileset dir="${build.generated.dir}/jax-wsCache/WSGestionarProducto">
-                <include name="**/*.java"/>
-            </fileset>
-        </copy>
-    </target>
-    <target name="wsimport-client-clean-WSGestionarProducto" depends="-init-project">
-        <delete dir="${build.generated.sources.dir}/jax-ws/com/portafolio/ws/producto"/>
-        <delete dir="${build.generated.dir}/jax-wsCache/WSGestionarProducto"/>
-    </target>
     <target name="wsimport-client-WSGestionarUsuario" depends="wsimport-init">
         <mkdir dir="${build.generated.dir}/jax-wsCache/WSGestionarUsuario"/>
         <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/WSGestionarUsuario" destdir="${build.generated.dir}/jax-wsCache/WSGestionarUsuario" wsdl="${basedir}/${conf-dir}xml-resources/web-service-references/WSGestionarUsuario/wsdl/localhost_8080/WSPotafolio/WSGestionarUsuario.wsdl" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" fork="false" wsdlLocation="http://localhost:8080/WSPotafolio/WSGestionarUsuario?wsdl" xnocompile="true" xendorsed="true" package="com.portafolio.servicios">
@@ -90,5 +74,21 @@
         <delete dir="${build.generated.sources.dir}/jax-ws/com/portafolio/empresaService"/>
         <delete dir="${build.generated.dir}/jax-wsCache/WSGestionarEmpresa"/>
     </target>
-    <target name="wsimport-client-generate" depends="wsimport-client-WSGestionarProducto, wsimport-client-WSGestionarUsuario, wsimport-client-WSGestionarPersona, wsimport-client-WSGestionarEmpresa"/>
+    <target name="wsimport-client-WSGestionarProducto" depends="wsimport-init">
+        <mkdir dir="${build.generated.dir}/jax-wsCache/WSGestionarProducto"/>
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/WSGestionarProducto" destdir="${build.generated.dir}/jax-wsCache/WSGestionarProducto" wsdl="${basedir}/${conf-dir}xml-resources/web-service-references/WSGestionarProducto/wsdl/localhost_8080/WSPotafolio/WSGestionarProducto.wsdl" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" fork="false" wsdlLocation="http://localhost:8080/WSPotafolio/WSGestionarProducto?wsdl" xnocompile="true" xendorsed="true">
+            <depends file="${basedir}/${conf-dir}xml-resources/web-service-references/WSGestionarProducto/wsdl/localhost_8080/WSPotafolio/WSGestionarProducto.wsdl"/>
+            <produces dir="${build.generated.dir}/jax-wsCache/WSGestionarProducto"/>
+        </wsimport>
+        <copy todir="${build.generated.sources.dir}/jax-ws">
+            <fileset dir="${build.generated.dir}/jax-wsCache/WSGestionarProducto">
+                <include name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+    <target name="wsimport-client-clean-WSGestionarProducto" depends="-init-project">
+        <delete dir="${build.generated.sources.dir}/jax-ws/com/portafolio/service"/>
+        <delete dir="${build.generated.dir}/jax-wsCache/WSGestionarProducto"/>
+    </target>
+    <target name="wsimport-client-generate" depends="wsimport-client-WSGestionarUsuario, wsimport-client-WSGestionarPersona, wsimport-client-WSGestionarEmpresa, wsimport-client-WSGestionarProducto"/>
 </project>
