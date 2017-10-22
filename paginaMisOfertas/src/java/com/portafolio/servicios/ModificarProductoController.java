@@ -125,7 +125,7 @@ public ModelAndView modificarProducto(HttpServletRequest request,HttpSession ses
         }else{
             activoPaso ="0";
         }         
-        actualizarProducto(idProducto, nombre, precio, descripcion, fotografia, activoPaso, idEmpresa, idTipoProducto, fechaIngreso, fechaCaducidad);
+            actualizarProducto(idProducto, nombre, precio, descripcion, fotografia, activoPaso, idEmpresa, idTipoProducto, fechaIngreso, fechaCaducidad);
         
         mav.addObject("errorGeneral", "Se ha modificado Correctamente");
        

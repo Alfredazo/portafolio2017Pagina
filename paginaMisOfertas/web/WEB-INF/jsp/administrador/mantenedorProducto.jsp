@@ -140,7 +140,7 @@
                                         </thead>
                                         <tbody>
                                             <!-- Aqui va el metodo Foreach -->
-                                        
+
                                             <c:forEach items="${listadoProductoEmpresa}" var="map" >
                                                 <tr>
                                                     <td>
@@ -247,9 +247,15 @@
                                             </c:forEach>
                                         </select>
                                     </div>
-                                     <div class="form-group">
+                                    <div class="form-group">
+                                        Fecha de actual:<br>
+                                        <input type="date" class="form-control" required="" name="fechaIngreso" value="<c:out value="${fechaIngresodDev}"/>">
+                                        <c:out value="${fechaIngresoError}"/>
+                                    </div>
+
+                                    <div class="form-group">
                                         Fecha de caducidad:<br>
-                             
+
                                         <input type="date" class="form-control" required="" name="fechaCaducidad" value="<c:out value="${fechaCaducidadDev}"/>">
                                         <c:out value="${fechaCaducidadError}"/>
                                     </div>
@@ -277,7 +283,7 @@
                                             <option value="${map.idProducto}">${map.nombre}</option>          
                                         </c:forEach>
                                     </select>
-                                                                        <div class="form-group">
+                                    <div class="form-group">
                                         <input type="text" class="form-control" placeholder="Nombre" required="" name="nombre" value="<c:out value="${nombreDev}"/>">
                                         <c:out value="${nombreError}"/>
                                     </div>
@@ -319,13 +325,13 @@
                                     </div>
                                     <div class="form-group">
                                         Fecha de actual:<br>
-                             
+
                                         <input type="date" class="form-control" required="" name="fechaIngreso" value="<c:out value="${fechaIngresodDev}"/>">
                                         <c:out value="${fechaIngresoError}"/>
                                     </div>
-                                     <div class="form-group">
+                                    <div class="form-group">
                                         Fecha de caducidad:<br>
-                             
+
                                         <input type="date" class="form-control" required="" name="fechaCaducidad" value="<c:out value="${fechaCaducidadDev}"/>">
                                         <c:out value="${fechaCaducidadError}"/>
                                     </div>
