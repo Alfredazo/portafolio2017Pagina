@@ -51,6 +51,7 @@
                                 <li class="active"><a href="mantenedorUsuario.htm">Usuario</a></li>
                                 <li><a href="mantenedorEmpresa.htm">Empresa</a></li>
                                 <li><a href="mantenedorProducto.htm">Producto</a></li>
+                                <li><a href="mantenedorDescuento.htm">Descuento</a></li>
                             </ul>
                         </li>
                     </ul>

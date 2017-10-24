@@ -90,5 +90,21 @@
         <delete dir="${build.generated.sources.dir}/jax-ws/com/portafolio/service"/>
         <delete dir="${build.generated.dir}/jax-wsCache/WSGestionarProducto"/>
     </target>
-    <target name="wsimport-client-generate" depends="wsimport-client-WSGestionarUsuario, wsimport-client-WSGestionarPersona, wsimport-client-WSGestionarEmpresa, wsimport-client-WSGestionarProducto"/>
+    <target name="wsimport-client-WSGestionarDescuento" depends="wsimport-init">
+        <mkdir dir="${build.generated.dir}/jax-wsCache/WSGestionarDescuento"/>
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/WSGestionarDescuento" destdir="${build.generated.dir}/jax-wsCache/WSGestionarDescuento" wsdl="${basedir}/${conf-dir}xml-resources/web-service-references/WSGestionarDescuento/wsdl/localhost_8080/WSPotafolio/WSGestionarDescuento.wsdl" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" fork="false" wsdlLocation="http://localhost:8080/WSPotafolio/WSGestionarDescuento?wsdl" xnocompile="true" xendorsed="true">
+            <depends file="${basedir}/${conf-dir}xml-resources/web-service-references/WSGestionarDescuento/wsdl/localhost_8080/WSPotafolio/WSGestionarDescuento.wsdl"/>
+            <produces dir="${build.generated.dir}/jax-wsCache/WSGestionarDescuento"/>
+        </wsimport>
+        <copy todir="${build.generated.sources.dir}/jax-ws">
+            <fileset dir="${build.generated.dir}/jax-wsCache/WSGestionarDescuento">
+                <include name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+    <target name="wsimport-client-clean-WSGestionarDescuento" depends="-init-project">
+        <delete dir="${build.generated.sources.dir}/jax-ws/com/portafolio/service"/>
+        <delete dir="${build.generated.dir}/jax-wsCache/WSGestionarDescuento"/>
+    </target>
+    <target name="wsimport-client-generate" depends="wsimport-client-WSGestionarUsuario, wsimport-client-WSGestionarPersona, wsimport-client-WSGestionarEmpresa, wsimport-client-WSGestionarProducto, wsimport-client-WSGestionarDescuento"/>
 </project>

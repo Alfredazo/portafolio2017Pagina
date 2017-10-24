@@ -32,6 +32,7 @@
                 <prop key="mantenedorUsuario.htm">mantenedorUsuarioController</prop>
                 <prop key="mantenedorEmpresa.htm">mantenedorEmpresaController</prop>
                 <prop key="mantenedorProducto.htm">mantenedorProductoController</prop>
+                <prop key="mantenedorDescuento.htm">mantenedorDescuentoController</prop>
                 
                 <prop key="registrar.htm">registroUsuarioController</prop>
                 <prop key="eliminarUsuario.htm">eliminarUsuarioController</prop>
@@ -45,6 +46,10 @@
                 <prop key="agregarProducto.htm">agregarProductoController</prop>
                 <prop key="eliminarProducto.htm">eliminarProductoController</prop>
                 <prop key="modificarProducto.htm">modificarProductoController</prop>
+                
+                <prop key="agregarDescuento.htm">agregarDescuentoController</prop>
+                <prop key="eliminarDescuento.htm">eliminarDescuentoController</prop>
+                <prop key="modificarDescuento.htm">modificarDescuentoController</prop>
                 
                 
 
@@ -105,6 +110,10 @@
           class="com.portafolio.servicios.MantenedorProductoController"
     />
     
+    <bean id="mantenedorDescuentoController"
+          class="com.portafolio.servicios.MantenedorDescuentoController"
+    />
+    
     <bean id="eliminarUsuarioController"
            class="com.portafolio.servicios.EliminarUsuarioController"
     />
@@ -129,5 +138,17 @@
     />
     <bean id="modificarProductoController"
              class="com.portafolio.servicios.ModificarProductoController"
+    />
+    
+    <bean id="agregarDescuentoController"
+          class="com.portafolio.servicios.AgregarDescuentoController"
+    />
+    
+    <bean id="eliminarDescuentoController"
+             class="com.portafolio.servicios.EliminarDescuentoController"
+    />
+    
+    <bean id="modificarDescuentoController"
+             class="com.portafolio.servicios.ModificarDescuentoController"
     />
 </beans>

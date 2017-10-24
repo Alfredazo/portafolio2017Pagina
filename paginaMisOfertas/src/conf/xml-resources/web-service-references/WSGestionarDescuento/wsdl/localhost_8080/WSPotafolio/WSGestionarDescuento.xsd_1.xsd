@@ -1,0 +1,95 @@
+<?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI (http://jax-ws.java.net). RI's version is Metro/2.3.2-b608 (trunk-7979; 2015-01-21T12:50:19+0000) JAXWS-RI/2.2.11-b150120.1832 JAXWS-API/2.2.12 JAXB-RI/2.2.12-b141219.1637 JAXB-API/2.2.13-b141020.1521 svn-revision#unknown. --><xs:schema xmlns:tns="http://service.portafolio.com/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://service.portafolio.com/">
+
+<xs:element name="actualizarDescuento" type="tns:actualizarDescuento"/>
+
+<xs:element name="actualizarDescuentoResponse" type="tns:actualizarDescuentoResponse"/>
+
+<xs:element name="borrarDescuentoPorID" type="tns:borrarDescuentoPorID"/>
+
+<xs:element name="borrarDescuentoPorIDResponse" type="tns:borrarDescuentoPorIDResponse"/>
+
+<xs:element name="listarDescuentoProductoEmpresa" type="tns:listarDescuentoProductoEmpresa"/>
+
+<xs:element name="listarDescuentoProductoEmpresaResponse" type="tns:listarDescuentoProductoEmpresaResponse"/>
+
+<xs:element name="registrarDescuento" type="tns:registrarDescuento"/>
+
+<xs:element name="registrarDescuentoResponse" type="tns:registrarDescuentoResponse"/>
+
+<xs:complexType name="listarDescuentoProductoEmpresa">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="listarDescuentoProductoEmpresaResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:descuento" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="descuento">
+<xs:sequence>
+<xs:element name="condiciones" type="xs:string" minOccurs="0"/>
+<xs:element name="descripcion" type="xs:string" minOccurs="0"/>
+<xs:element name="descuento" type="xs:int"/>
+<xs:element name="empresa" type="xs:string" minOccurs="0"/>
+<xs:element name="fechainicio" type="xs:string" minOccurs="0"/>
+<xs:element name="fechatermino" type="xs:string" minOccurs="0"/>
+<xs:element name="id" type="xs:int"/>
+<xs:element name="imagen" type="xs:string" minOccurs="0"/>
+<xs:element name="nombre" type="xs:string" minOccurs="0"/>
+<xs:element name="precio" type="xs:int"/>
+<xs:element name="producto" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="actualizarDescuento">
+<xs:sequence>
+<xs:element name="id" type="xs:int"/>
+<xs:element name="nombre" type="xs:string" minOccurs="0"/>
+<xs:element name="descripcion" type="xs:string" minOccurs="0"/>
+<xs:element name="descuento" type="xs:int"/>
+<xs:element name="imagen" type="xs:string" minOccurs="0"/>
+<xs:element name="condiciones" type="xs:string" minOccurs="0"/>
+<xs:element name="fechaInicio" type="xs:string" minOccurs="0"/>
+<xs:element name="fechaTermino" type="xs:string" minOccurs="0"/>
+<xs:element name="idProducto" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="actualizarDescuentoResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:boolean"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="borrarDescuentoPorID">
+<xs:sequence>
+<xs:element name="idOferta" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="borrarDescuentoPorIDResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:boolean"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="registrarDescuento">
+<xs:sequence>
+<xs:element name="nombre" type="xs:string" minOccurs="0"/>
+<xs:element name="descripcion" type="xs:string" minOccurs="0"/>
+<xs:element name="descuento" type="xs:int"/>
+<xs:element name="imagen" type="xs:string" minOccurs="0"/>
+<xs:element name="condiciones" type="xs:string" minOccurs="0"/>
+<xs:element name="fechaInicio" type="xs:string" minOccurs="0"/>
+<xs:element name="fechaTermino" type="xs:string" minOccurs="0"/>
+<xs:element name="idProducto" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="registrarDescuentoResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:boolean"/>
+</xs:sequence>
+</xs:complexType>
+</xs:schema>
