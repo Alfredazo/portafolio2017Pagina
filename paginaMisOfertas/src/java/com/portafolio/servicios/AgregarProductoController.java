@@ -94,6 +94,7 @@ public class AgregarProductoController {
             mensajeFechaIngreso = "La fecha no debe venir en blanco";
         } else {
             /*Parsear la fecha*/
+            fechaIngreso = formatoFecha(fechaIngreso);
             fechaIngresoDevuelta = fechaIngreso;
         }
 
@@ -104,6 +105,7 @@ public class AgregarProductoController {
             mensajeFecha = "La fecha no debe venir en blanco";
         } else {
             /*Parsear la fecha*/
+            fechaCaducidad = formatoFecha(fechaCaducidad);
             fechaDevuelta = fechaCaducidad;
         }
 
@@ -169,6 +171,15 @@ public class AgregarProductoController {
         com.portafolio.service.WSGestionarProducto_Service service = new com.portafolio.service.WSGestionarProducto_Service();
         com.portafolio.service.WSGestionarProducto port = service.getWSGestionarProductoPort();
         return port.listarProductoEmpresa();
+    }
+    
+    
+      public String formatoFecha(String fecha){
+        String fechaFormateada = "";
+        /*La fecha viene asi 2017-10-24  y yo la quiero dejar asi 24/10/2017  */
+        String[]cadena = fecha.split("-");
+        fechaFormateada = cadena[2]+"/"+cadena[1]+"/"+cadena[0];       
+        return fechaFormateada;
     }
 
 }

@@ -167,6 +167,7 @@ public class AgregarUsuarioController {
             mensajeFecha = "La fecha no debe venir en blanco";
         } else {
             /*Parsear la fecha*/
+            fechaNacimiento = formatoFecha(fechaNacimiento);
             fechaDevuelta = fechaNacimiento;
         }
 
@@ -344,5 +345,12 @@ public class AgregarUsuarioController {
         com.portafolio.modelo.WSGestionarPersona port = service.getWSGestionarPersonaPort();
         return port.comprobarSiExisteRut(rut);
     }
-
+    
+    public String formatoFecha(String fecha){
+        String fechaFormateada = "";
+        /*La fecha viene asi 2017-10-24  y yo la quiero dejar asi 24/10/2017  */
+        String[]cadena = fecha.split("-");
+        fechaFormateada = cadena[2]+"/"+cadena[1]+"/"+cadena[0];       
+        return fechaFormateada;
+    }
 }

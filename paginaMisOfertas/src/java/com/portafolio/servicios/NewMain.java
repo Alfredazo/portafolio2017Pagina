@@ -22,15 +22,15 @@ public class NewMain {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-       
+
 //        System.out.println(listarInformacionCompletaTodosLosUsuarios());
+//        String fecha ="2017-10-12";
+//        String fechaFormateada = "";
+//        /*La fecha viene asi 2017-10-24  y yo la quiero dejar asi 24/10/2017  */
+//        String[] cadena = fecha.split("-");
+//        
+//        System.out.println("Formato:"+ cadena[2]+"/"+cadena[1]+"/"+cadena[0]);
         
     }
 
-
-
-    
-    }
-
- 
-
+}

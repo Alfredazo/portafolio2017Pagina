@@ -85,6 +85,7 @@ public class AgregarDescuentoController {
             mensajefechaInicio = "La fecha no debe venir en blanco";
         } else {
             /*Parsear la fecha*/
+            fechaInicio = formatoFecha(fechaInicio);
             fechaInicioDevuelta = fechaInicio;
         }
         
@@ -96,6 +97,7 @@ public class AgregarDescuentoController {
             mensajefechaTermino = "La fecha no debe venir en blanco";
         } else {
             /*Parsear la fecha*/
+            fechaTermino = formatoFecha(fechaTermino);
             fechaTerminoDevuelta = fechaTermino;
         }
        
@@ -174,5 +176,13 @@ public class AgregarDescuentoController {
         return port.listarDescuentoProductoEmpresa();
     }
 
+    public String formatoFecha(String fecha){
+        String fechaFormateada = "";
+        /*La fecha viene asi 2017-10-24  y yo la quiero dejar asi 24/10/2017  */
+        String[]cadena = fecha.split("-");
+        fechaFormateada = cadena[2]+"/"+cadena[1]+"/"+cadena[0];       
+        return fechaFormateada;
+    }
+    
     
 }
