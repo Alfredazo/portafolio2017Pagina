@@ -1,7 +1,7 @@
 package com.portafolio.servicios;
 
 import com.portafolio.empresaService.Empresa;
-import com.portafolio.service.Descuento;
+import com.portafolio.servicios.descuento.Descuento;
 import com.portafolio.service.Producto;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -161,15 +161,16 @@ public class AgregarDescuentoController {
                 
     }
 
+    
     private static boolean registrarDescuento(java.lang.String nombre, java.lang.String descripcion, int descuento, java.lang.String imagen, java.lang.String condiciones, java.lang.String fechaInicio, java.lang.String fechaTermino, int idProducto) {
-        com.portafolio.service.WSGestionarDescuento_Service service = new com.portafolio.service.WSGestionarDescuento_Service();
-        com.portafolio.service.WSGestionarDescuento port = service.getWSGestionarDescuentoPort();
+        com.portafolio.servicios.descuento.WSGestionarDescuento_Service service = new com.portafolio.servicios.descuento.WSGestionarDescuento_Service();
+        com.portafolio.servicios.descuento.WSGestionarDescuento port = service.getWSGestionarDescuentoPort();
         return port.registrarDescuento(nombre, descripcion, descuento, imagen, condiciones, fechaInicio, fechaTermino, idProducto);
     }
 
-    private static java.util.List<com.portafolio.service.Descuento> listarDescuentoProductoEmpresa() {
-        com.portafolio.service.WSGestionarDescuento_Service service = new com.portafolio.service.WSGestionarDescuento_Service();
-        com.portafolio.service.WSGestionarDescuento port = service.getWSGestionarDescuentoPort();
+    private static java.util.List<com.portafolio.servicios.descuento.Descuento> listarDescuentoProductoEmpresa() {
+        com.portafolio.servicios.descuento.WSGestionarDescuento_Service service = new com.portafolio.servicios.descuento.WSGestionarDescuento_Service();
+        com.portafolio.servicios.descuento.WSGestionarDescuento port = service.getWSGestionarDescuentoPort();
         return port.listarDescuentoProductoEmpresa();
     }
 

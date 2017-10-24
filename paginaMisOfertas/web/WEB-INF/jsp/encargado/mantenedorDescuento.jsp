@@ -37,7 +37,7 @@
                                 </span>
                                 <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                                     <span class="clear"> <span class="block m-t-xs"> <strong class="font-bold">Usuario:<c:out value="${nombreSesion}"/></strong>
-                                        </span> <span class="text-muted text-xs block">Administrador<b class="caret"></b></span> </span> </a>
+                                        </span> <span class="text-muted text-xs block">Encargado<b class="caret"></b></span> </span> </a>
                                 <ul class="dropdown-menu animated fadeInRight m-t-xs">
                                     <li><a href="profile.html">Perfil</a></li>
                                     <li class="divider"></li>
@@ -53,6 +53,7 @@
                             <ul class="nav nav-second-level collapse"> 
                                 <li><a href="mantenedorUsuario.htm">Usuario</a></li>
                                 <li><a href="mantenedorEmpresa.htm">Empresa</a></li>
+                                <li><a href="mantenedorProducto.htm">Producto</a></li>
                                 <li><a href="mantenedorProducto.htm">Producto</a></li>
                                 <li class="active"><a href="mantenedorDescuento.htm">Descuento</a></li>
                             </ul>
@@ -142,7 +143,7 @@
                                         </thead>
                                         <tbody>
                                             <!-- Aqui va el metodo Foreach -->
-
+                                        
                                             <c:forEach items="${listarOferta}" var="map" >
                                                 <tr>
                                                     <td>${map.id}</td> 
@@ -157,7 +158,7 @@
                                                     <td>${map.empresa}</td>
                                                     <td>${map.precio}</td>                                                 
                                                     <td>
-                                                        <form action="eliminarDescuento.htm" method="POST">
+                                                        <form action="#" method="POST">
                                                             <input type="hidden" value="${map.id}" name="idOfertaEscondido">
                                                             <button type="submit" value="${map.id}" class="btn btn-primary dropdown-toggle">Eliminar</button>
                                                         </form>  
@@ -239,8 +240,8 @@
                                         </select>
                                         <c:out value="${productoError}"/>
                                     </div>
-
-
+                                    
+                              
 
                                     <input class="btn btn-primary" type="submit" value="Agregar descuento">
 
@@ -252,77 +253,7 @@
             </div>
         </div>
 
-        <div id="modal-modificar" class="modal fade" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-body">
-                        <div class="row">
-                            <div><h3 class="m-t-none m-b">Modificar descuento</h3>
-                                <form role="form"  method="post" action="modificarDescuento.htm">
-                                    <select class="form-control m-b" name="idOfertaModificar">
-                                        <option value="-1" selected="selected" >Seleccione descuento</option>   
-                                        <c:forEach items="${listarOferta}" var="map" >
-                                            <option value="${map.id}">${map.nombre}</option>          
-                                        </c:forEach>
-                                    </select>
-                                    <div class="form-group">
-                                        <input type="text" class="form-control" placeholder="Nombre" required="" name="nombre" value="<c:out value="${nombreDev}"/>">
-                                        <c:out value="${nombreError}"/>
-                                    </div>
-                                    <div class="form-group">
-                                        <input type="text" class="form-control" placeholder="Descripcion" required="" name="descripcion"  value="<c:out value="${descripcionDev}"/>">
-                                        <c:out value="${descripcionError}"/>
-                                    </div>
-                                    <div class="form-group">
-                                        <input type="number" class="form-control" placeholder="Descuento" required="" name="descuento" value="<c:out value="${descuentoDev}"/>">
-                                        <c:out value="${descuentoError}"/>
-                                    </div>
-                                    <div class="form-group">
-                                        <input type="text" class="form-control" placeholder="imagen" required="" name="imagen" value="<c:out value="${imagenDev}"/>">
-                                        <c:out value="${imagenError}"/>
-                                    </div>
-                                    <div class="form-group">
-                                        <input type="text" class="form-control" placeholder="Condiciones" required="" name="condiciones" value="<c:out value="${condicionesDev}"/>">
-                                        <c:out value="${condicionesError}"/>
-                                    </div>
-                                    <div class="form-group">
-                                        Fecha de inicio<br>
-                                        <input type="date" class="form-control" required="" name="fechainicio" value="<c:out value="${fechainicioDev}"/>">
-                                        <c:out value="${fechainicioError}"/>
-                                    </div>
-                                    <div class="form-group">
-                                        Fecha de termino<br>
-                                        <input type="date" class="form-control" required="" name="fechatermino" value="<c:out value="${fechaterminoDev}"/>">
-                                        <c:out value="${fechaterminoError}"/>
-                                    </div>
-                                    
-                                    <select class="form-control m-b" name="activo">
-                                        <option value="2" selected="selected" >Oferta Activa</option>   
-                                        <option value="1">SI</option>
-                                        <option value="0">NO</option>
-                                    </select>
-
-                                    <div class="form-group">
-                                        <select class="form-control m-b" name="idProducto">
-                                            <option value="-1" selected="selected" >Seleccione Producto</option>   
-                                            <c:forEach items="${listarProducto}" var="map" >
-                                                <option value="${map.idProducto}">${map.nombre}</option>          
-                                            </c:forEach>
-                                        </select>
-                                        <c:out value="${productoError}"/>
-                                    </div>
-
-
-
-                                    <input class="btn btn-primary" type="submit" value="Modificar descuento">
-
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>     
+        
 
 
         <!-- Mainly scripts -->

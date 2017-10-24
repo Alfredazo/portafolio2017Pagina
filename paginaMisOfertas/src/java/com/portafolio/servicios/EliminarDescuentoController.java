@@ -1,6 +1,6 @@
 package com.portafolio.servicios;
 
-import com.portafolio.service.Descuento;
+import com.portafolio.servicios.descuento.Descuento;
 import java.util.ArrayList;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -58,14 +58,16 @@ public class EliminarDescuentoController {
     }
 
     private static boolean borrarDescuentoPorID(int idOferta) {
-        com.portafolio.service.WSGestionarDescuento_Service service = new com.portafolio.service.WSGestionarDescuento_Service();
-        com.portafolio.service.WSGestionarDescuento port = service.getWSGestionarDescuentoPort();
+        com.portafolio.servicios.descuento.WSGestionarDescuento_Service service = new com.portafolio.servicios.descuento.WSGestionarDescuento_Service();
+        com.portafolio.servicios.descuento.WSGestionarDescuento port = service.getWSGestionarDescuentoPort();
         return port.borrarDescuentoPorID(idOferta);
     }
 
-    private static java.util.List<com.portafolio.service.Descuento> listarDescuentoProductoEmpresa() {
-        com.portafolio.service.WSGestionarDescuento_Service service = new com.portafolio.service.WSGestionarDescuento_Service();
-        com.portafolio.service.WSGestionarDescuento port = service.getWSGestionarDescuentoPort();
+    private static java.util.List<com.portafolio.servicios.descuento.Descuento> listarDescuentoProductoEmpresa() {
+        com.portafolio.servicios.descuento.WSGestionarDescuento_Service service = new com.portafolio.servicios.descuento.WSGestionarDescuento_Service();
+        com.portafolio.servicios.descuento.WSGestionarDescuento port = service.getWSGestionarDescuentoPort();
         return port.listarDescuentoProductoEmpresa();
     }
+
+    
 }

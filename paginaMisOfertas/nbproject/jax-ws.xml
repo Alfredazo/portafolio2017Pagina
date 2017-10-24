@@ -146,7 +146,7 @@
     <client name="WSGestionarDescuento">
       <wsdl-url>http://localhost:8080/WSPotafolio/WSGestionarDescuento?wsdl</wsdl-url>
       <local-wsdl-file>localhost_8080/WSPotafolio/WSGestionarDescuento.wsdl</local-wsdl-file>
-      <package-name>com.portafolio.service</package-name>
+      <package-name forceReplace="true">com.portafolio.servicios.descuento</package-name>
       <catalog-file>catalog.xml</catalog-file>
       <wsimport-options>
         <wsimport-option>
@@ -172,6 +172,10 @@
         <wsimport-option>
           <wsimport-option-name>xendorsed</wsimport-option-name>
           <wsimport-option-value>true</wsimport-option-value>
+        </wsimport-option>
+        <wsimport-option>
+          <wsimport-option-name>package</wsimport-option-name>
+          <wsimport-option-value>com.portafolio.servicios.descuento</wsimport-option-value>
         </wsimport-option>
       </wsimport-options>
     </client>

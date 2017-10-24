@@ -10,12 +10,6 @@
 <message name="borrarDescuentoPorIDResponse">
 <part name="parameters" element="tns:borrarDescuentoPorIDResponse"/>
 </message>
-<message name="actualizarDescuento">
-<part name="parameters" element="tns:actualizarDescuento"/>
-</message>
-<message name="actualizarDescuentoResponse">
-<part name="parameters" element="tns:actualizarDescuentoResponse"/>
-</message>
 <message name="listarDescuentoProductoEmpresa">
 <part name="parameters" element="tns:listarDescuentoProductoEmpresa"/>
 </message>
@@ -28,14 +22,16 @@
 <message name="registrarDescuentoResponse">
 <part name="parameters" element="tns:registrarDescuentoResponse"/>
 </message>
+<message name="actualizarDescuento">
+<part name="parameters" element="tns:actualizarDescuento"/>
+</message>
+<message name="actualizarDescuentoResponse">
+<part name="parameters" element="tns:actualizarDescuentoResponse"/>
+</message>
 <portType name="WSGestionarDescuento">
 <operation name="borrarDescuentoPorID">
 <input wsam:Action="http://service.portafolio.com/WSGestionarDescuento/borrarDescuentoPorIDRequest" message="tns:borrarDescuentoPorID"/>
 <output wsam:Action="http://service.portafolio.com/WSGestionarDescuento/borrarDescuentoPorIDResponse" message="tns:borrarDescuentoPorIDResponse"/>
-</operation>
-<operation name="actualizarDescuento">
-<input wsam:Action="http://service.portafolio.com/WSGestionarDescuento/actualizarDescuentoRequest" message="tns:actualizarDescuento"/>
-<output wsam:Action="http://service.portafolio.com/WSGestionarDescuento/actualizarDescuentoResponse" message="tns:actualizarDescuentoResponse"/>
 </operation>
 <operation name="listarDescuentoProductoEmpresa">
 <input wsam:Action="http://service.portafolio.com/WSGestionarDescuento/listarDescuentoProductoEmpresaRequest" message="tns:listarDescuentoProductoEmpresa"/>
@@ -44,6 +40,10 @@
 <operation name="registrarDescuento">
 <input wsam:Action="http://service.portafolio.com/WSGestionarDescuento/registrarDescuentoRequest" message="tns:registrarDescuento"/>
 <output wsam:Action="http://service.portafolio.com/WSGestionarDescuento/registrarDescuentoResponse" message="tns:registrarDescuentoResponse"/>
+</operation>
+<operation name="actualizarDescuento">
+<input wsam:Action="http://service.portafolio.com/WSGestionarDescuento/actualizarDescuentoRequest" message="tns:actualizarDescuento"/>
+<output wsam:Action="http://service.portafolio.com/WSGestionarDescuento/actualizarDescuentoResponse" message="tns:actualizarDescuentoResponse"/>
 </operation>
 </portType>
 <binding name="WSGestionarDescuentoPortBinding" type="tns:WSGestionarDescuento">
@@ -57,15 +57,6 @@
 <soap:body use="literal"/>
 </output>
 </operation>
-<operation name="actualizarDescuento">
-<soap:operation soapAction=""/>
-<input>
-<soap:body use="literal"/>
-</input>
-<output>
-<soap:body use="literal"/>
-</output>
-</operation>
 <operation name="listarDescuentoProductoEmpresa">
 <soap:operation soapAction=""/>
 <input>
@@ -76,6 +67,15 @@
 </output>
 </operation>
 <operation name="registrarDescuento">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="actualizarDescuento">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>

@@ -1,6 +1,6 @@
 package com.portafolio.servicios;
 
-import com.portafolio.service.Descuento;
+import com.portafolio.servicios.descuento.Descuento;
 import java.util.ArrayList;
 import java.util.Date;
 import javax.servlet.http.HttpServletRequest;
@@ -98,6 +98,13 @@ public ModelAndView modificarDescuento(HttpServletRequest request,HttpSession se
             fechaTerminoDevuelta = fechaTermino;
         }
        
+        String activo = request.getParameter("activo");
+        String activoError = "";
+        if (activo.equals(("2"))) {
+            activoError = "Debe seleccionar Activo";
+            errorGeneral = true;
+        }
+        
         int idProducto = Integer.parseInt(request.getParameter("idProducto"));
         String productoError = "";
         if (idProducto == -1) {
@@ -116,7 +123,7 @@ public ModelAndView modificarDescuento(HttpServletRequest request,HttpSession se
             mav.setViewName("administrador/mantenedorDescuento");
         }
                 
-        actualizarDescuento(idOferta, nombre, descripcion, descuento, imagen, condiciones,fechaInicioDevuelta , fechaTerminoDevuelta, idProducto);
+        actualizarDescuento(idOferta, nombre, descripcion, descuento, imagen, condiciones,fechaInicioDevuelta , fechaTerminoDevuelta,activo,idProducto);
         
         mav.addObject("errorGeneral", "Se ha modificado Correctamente");
         
@@ -163,17 +170,20 @@ public ModelAndView modificarDescuento(HttpServletRequest request,HttpSession se
             
 }
 
-    private static boolean actualizarDescuento(int id, java.lang.String nombre, java.lang.String descripcion, int descuento, java.lang.String imagen, java.lang.String condiciones, java.lang.String fechaInicio, java.lang.String fechaTermino, int idProducto) {
-        com.portafolio.service.WSGestionarDescuento_Service service = new com.portafolio.service.WSGestionarDescuento_Service();
-        com.portafolio.service.WSGestionarDescuento port = service.getWSGestionarDescuentoPort();
-        return port.actualizarDescuento(id, nombre, descripcion, descuento, imagen, condiciones, fechaInicio, fechaTermino, idProducto);
-    }
-
-    private static java.util.List<com.portafolio.service.Descuento> listarDescuentoProductoEmpresa() {
-        com.portafolio.service.WSGestionarDescuento_Service service = new com.portafolio.service.WSGestionarDescuento_Service();
-        com.portafolio.service.WSGestionarDescuento port = service.getWSGestionarDescuentoPort();
+    private static java.util.List<com.portafolio.servicios.descuento.Descuento> listarDescuentoProductoEmpresa() {
+        com.portafolio.servicios.descuento.WSGestionarDescuento_Service service = new com.portafolio.servicios.descuento.WSGestionarDescuento_Service();
+        com.portafolio.servicios.descuento.WSGestionarDescuento port = service.getWSGestionarDescuentoPort();
         return port.listarDescuentoProductoEmpresa();
     }
+
+    private static boolean actualizarDescuento(int id, java.lang.String nombre, java.lang.String descripcion, int descuento, java.lang.String imagen, java.lang.String condiciones, java.lang.String fechaInicio, java.lang.String fechaTermino, java.lang.String activo, int idProducto) {
+        com.portafolio.servicios.descuento.WSGestionarDescuento_Service service = new com.portafolio.servicios.descuento.WSGestionarDescuento_Service();
+        com.portafolio.servicios.descuento.WSGestionarDescuento port = service.getWSGestionarDescuentoPort();
+        return port.actualizarDescuento(id, nombre, descripcion, descuento, imagen, condiciones, fechaInicio, fechaTermino, activo, idProducto);
+    }
+
+  
+
 
 
 }
