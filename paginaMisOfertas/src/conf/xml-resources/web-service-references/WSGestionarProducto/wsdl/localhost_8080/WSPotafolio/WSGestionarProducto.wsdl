@@ -4,17 +4,29 @@
 <xsd:import namespace="http://service.portafolio.com/" schemaLocation="http://localhost:8080/WSPotafolio/WSGestionarProducto?xsd=1"/>
 </xsd:schema>
 </types>
-<message name="listarProducto">
-<part name="parameters" element="tns:listarProducto"/>
+<message name="actualizarActivoProducto">
+<part name="parameters" element="tns:actualizarActivoProducto"/>
 </message>
-<message name="listarProductoResponse">
-<part name="parameters" element="tns:listarProductoResponse"/>
+<message name="actualizarActivoProductoResponse">
+<part name="parameters" element="tns:actualizarActivoProductoResponse"/>
+</message>
+<message name="listarProductoPorRangoFechas">
+<part name="parameters" element="tns:listarProductoPorRangoFechas"/>
+</message>
+<message name="listarProductoPorRangoFechasResponse">
+<part name="parameters" element="tns:listarProductoPorRangoFechasResponse"/>
 </message>
 <message name="listarProductoEmpresa">
 <part name="parameters" element="tns:listarProductoEmpresa"/>
 </message>
 <message name="listarProductoEmpresaResponse">
 <part name="parameters" element="tns:listarProductoEmpresaResponse"/>
+</message>
+<message name="borrarProductoPorID">
+<part name="parameters" element="tns:borrarProductoPorID"/>
+</message>
+<message name="borrarProductoPorIDResponse">
+<part name="parameters" element="tns:borrarProductoPorIDResponse"/>
 </message>
 <message name="registrarProducto">
 <part name="parameters" element="tns:registrarProducto"/>
@@ -28,26 +40,34 @@
 <message name="actualizarProductoResponse">
 <part name="parameters" element="tns:actualizarProductoResponse"/>
 </message>
-<message name="borrarProductoPorID">
-<part name="parameters" element="tns:borrarProductoPorID"/>
-</message>
-<message name="borrarProductoPorIDResponse">
-<part name="parameters" element="tns:borrarProductoPorIDResponse"/>
-</message>
 <message name="listarTipoProducto">
 <part name="parameters" element="tns:listarTipoProducto"/>
 </message>
 <message name="listarTipoProductoResponse">
 <part name="parameters" element="tns:listarTipoProductoResponse"/>
 </message>
+<message name="listarProducto">
+<part name="parameters" element="tns:listarProducto"/>
+</message>
+<message name="listarProductoResponse">
+<part name="parameters" element="tns:listarProductoResponse"/>
+</message>
 <portType name="WSGestionarProducto">
-<operation name="listarProducto">
-<input wsam:Action="http://service.portafolio.com/WSGestionarProducto/listarProductoRequest" message="tns:listarProducto"/>
-<output wsam:Action="http://service.portafolio.com/WSGestionarProducto/listarProductoResponse" message="tns:listarProductoResponse"/>
+<operation name="actualizarActivoProducto">
+<input wsam:Action="http://service.portafolio.com/WSGestionarProducto/actualizarActivoProductoRequest" message="tns:actualizarActivoProducto"/>
+<output wsam:Action="http://service.portafolio.com/WSGestionarProducto/actualizarActivoProductoResponse" message="tns:actualizarActivoProductoResponse"/>
+</operation>
+<operation name="listarProductoPorRangoFechas">
+<input wsam:Action="http://service.portafolio.com/WSGestionarProducto/listarProductoPorRangoFechasRequest" message="tns:listarProductoPorRangoFechas"/>
+<output wsam:Action="http://service.portafolio.com/WSGestionarProducto/listarProductoPorRangoFechasResponse" message="tns:listarProductoPorRangoFechasResponse"/>
 </operation>
 <operation name="listarProductoEmpresa">
 <input wsam:Action="http://service.portafolio.com/WSGestionarProducto/listarProductoEmpresaRequest" message="tns:listarProductoEmpresa"/>
 <output wsam:Action="http://service.portafolio.com/WSGestionarProducto/listarProductoEmpresaResponse" message="tns:listarProductoEmpresaResponse"/>
+</operation>
+<operation name="borrarProductoPorID">
+<input wsam:Action="http://service.portafolio.com/WSGestionarProducto/borrarProductoPorIDRequest" message="tns:borrarProductoPorID"/>
+<output wsam:Action="http://service.portafolio.com/WSGestionarProducto/borrarProductoPorIDResponse" message="tns:borrarProductoPorIDResponse"/>
 </operation>
 <operation name="registrarProducto">
 <input wsam:Action="http://service.portafolio.com/WSGestionarProducto/registrarProductoRequest" message="tns:registrarProducto"/>
@@ -57,18 +77,27 @@
 <input wsam:Action="http://service.portafolio.com/WSGestionarProducto/actualizarProductoRequest" message="tns:actualizarProducto"/>
 <output wsam:Action="http://service.portafolio.com/WSGestionarProducto/actualizarProductoResponse" message="tns:actualizarProductoResponse"/>
 </operation>
-<operation name="borrarProductoPorID">
-<input wsam:Action="http://service.portafolio.com/WSGestionarProducto/borrarProductoPorIDRequest" message="tns:borrarProductoPorID"/>
-<output wsam:Action="http://service.portafolio.com/WSGestionarProducto/borrarProductoPorIDResponse" message="tns:borrarProductoPorIDResponse"/>
-</operation>
 <operation name="listarTipoProducto">
 <input wsam:Action="http://service.portafolio.com/WSGestionarProducto/listarTipoProductoRequest" message="tns:listarTipoProducto"/>
 <output wsam:Action="http://service.portafolio.com/WSGestionarProducto/listarTipoProductoResponse" message="tns:listarTipoProductoResponse"/>
 </operation>
+<operation name="listarProducto">
+<input wsam:Action="http://service.portafolio.com/WSGestionarProducto/listarProductoRequest" message="tns:listarProducto"/>
+<output wsam:Action="http://service.portafolio.com/WSGestionarProducto/listarProductoResponse" message="tns:listarProductoResponse"/>
+</operation>
 </portType>
 <binding name="WSGestionarProductoPortBinding" type="tns:WSGestionarProducto">
 <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
-<operation name="listarProducto">
+<operation name="actualizarActivoProducto">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="listarProductoPorRangoFechas">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>
@@ -78,6 +107,15 @@
 </output>
 </operation>
 <operation name="listarProductoEmpresa">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="borrarProductoPorID">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>
@@ -104,7 +142,7 @@
 <soap:body use="literal"/>
 </output>
 </operation>
-<operation name="borrarProductoPorID">
+<operation name="listarTipoProducto">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>
@@ -113,7 +151,7 @@
 <soap:body use="literal"/>
 </output>
 </operation>
-<operation name="listarTipoProducto">
+<operation name="listarProducto">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>

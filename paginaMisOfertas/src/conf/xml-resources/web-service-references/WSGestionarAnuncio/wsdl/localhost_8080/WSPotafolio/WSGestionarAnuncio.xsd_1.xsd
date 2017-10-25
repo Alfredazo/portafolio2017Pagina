@@ -1,0 +1,91 @@
+<?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI (http://jax-ws.java.net). RI's version is Metro/2.3.2-b608 (trunk-7979; 2015-01-21T12:50:19+0000) JAXWS-RI/2.2.11-b150120.1832 JAXWS-API/2.2.12 JAXB-RI/2.2.12-b141219.1637 JAXB-API/2.2.13-b141020.1521 svn-revision#unknown. --><xs:schema xmlns:tns="http://service.portafolio.com/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://service.portafolio.com/">
+
+<xs:element name="listaRecomendacionSistema" type="tns:listaRecomendacionSistema"/>
+
+<xs:element name="listaRecomendacionSistemaResponse" type="tns:listaRecomendacionSistemaResponse"/>
+
+<xs:element name="mostrarAnuncioAlimentosHOME" type="tns:mostrarAnuncioAlimentosHOME"/>
+
+<xs:element name="mostrarAnuncioAlimentosHOMEResponse" type="tns:mostrarAnuncioAlimentosHOMEResponse"/>
+
+<xs:element name="mostrarAnuncioElectronicaHOME" type="tns:mostrarAnuncioElectronicaHOME"/>
+
+<xs:element name="mostrarAnuncioElectronicaHOMEResponse" type="tns:mostrarAnuncioElectronicaHOMEResponse"/>
+
+<xs:element name="mostrarAnuncioLineaBlancaHOME" type="tns:mostrarAnuncioLineaBlancaHOME"/>
+
+<xs:element name="mostrarAnuncioLineaBlancaHOMEResponse" type="tns:mostrarAnuncioLineaBlancaHOMEResponse"/>
+
+<xs:element name="mostrarAnuncioROPAHOME" type="tns:mostrarAnuncioROPAHOME"/>
+
+<xs:element name="mostrarAnuncioROPAHOMEResponse" type="tns:mostrarAnuncioROPAHOMEResponse"/>
+
+<xs:complexType name="mostrarAnuncioLineaBlancaHOME">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="mostrarAnuncioLineaBlancaHOMEResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:anuncio" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="anuncio">
+<xs:sequence>
+<xs:element name="nombreProducto" type="xs:string" minOccurs="0"/>
+<xs:element name="precio" type="xs:int"/>
+<xs:element name="tipoProducto" type="xs:string" minOccurs="0"/>
+<xs:element name="urlImagen" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="mostrarAnuncioROPAHOME">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="mostrarAnuncioROPAHOMEResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:anuncio" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="mostrarAnuncioElectronicaHOME">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="mostrarAnuncioElectronicaHOMEResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:anuncio" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="listaRecomendacionSistema">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="listaRecomendacionSistemaResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:anuncioSistema" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="anuncioSistema">
+<xs:sequence>
+<xs:element name="diasRestantesCaducidad" type="xs:string" minOccurs="0"/>
+<xs:element name="fechaCaducidad" type="xs:string" minOccurs="0"/>
+<xs:element name="fechaIngreso" type="xs:string" minOccurs="0"/>
+<xs:element name="id" type="xs:int"/>
+<xs:element name="nombre" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="mostrarAnuncioAlimentosHOME">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="mostrarAnuncioAlimentosHOMEResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:anuncio" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+</xs:schema>

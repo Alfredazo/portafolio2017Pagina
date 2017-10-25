@@ -50,12 +50,9 @@
                         </li>
                         <li>
                             <a href="index.html"><i class="fa fa-th-large"></i> <span class="nav-label">Mantenedores</span> <span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level collapse"> 
-                                <li><a href="mantenedorUsuario.htm">Usuario</a></li>
-                                <li><a href="mantenedorEmpresa.htm">Empresa</a></li>
-                                <li><a href="mantenedorProducto.htm">Producto</a></li>
-                                <li><a href="mantenedorProducto.htm">Producto</a></li>
-                                <li class="active"><a href="mantenedorDescuento.htm">Descuento</a></li>
+                            <ul class="nav nav-second-level collapse">                               
+                                <li><a href="mantenedorEmpresa.htm">Empresa</a></li>                               
+                                <li class="active"><a href="mantenedorDescuento.htm">OFERTAS</a></li>
                             </ul>
                         </li>
                     </ul>
@@ -115,7 +112,7 @@
                         <div class="col-lg-12">
                             <div class="ibox float-e-margins">
                                 <div class="ibox-title">
-                                    <h5>Mantenimiento de descuento</h5>
+                                    <h5>Mantenedor de OFERTAS</h5>
                                     <div class="text-right">
                                         <a data-toggle="modal" class="btn btn-primary" href="#modal-agregar">Agregar descuento</a>
                                         <a data-toggle="modal" class="btn btn-primary" href="#modal-modificar">Modificar descuento</a>

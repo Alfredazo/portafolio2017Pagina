@@ -10,4 +10,6 @@
     <system systemId="http://localhost:8080/WSPotafolio/WSGestionarEmpresa?xsd=1" uri="wsdl/localhost_8080/WSPotafolio/WSGestionarEmpresa.xsd_1.xsd"/>
     <system systemId="http://localhost:8080/WSPotafolio/WSGestionarDescuento?wsdl" uri="wsdl/localhost_8080/WSPotafolio/WSGestionarDescuento.wsdl"/>
     <system systemId="http://localhost:8080/WSPotafolio/WSGestionarDescuento?xsd=1" uri="wsdl/localhost_8080/WSPotafolio/WSGestionarDescuento.xsd_1.xsd"/>
+    <system systemId="http://localhost:8080/WSPotafolio/WSGestionarAnuncio?wsdl" uri="wsdl/localhost_8080/WSPotafolio/WSGestionarAnuncio.wsdl"/>
+    <system systemId="http://localhost:8080/WSPotafolio/WSGestionarAnuncio?xsd=1" uri="wsdl/localhost_8080/WSPotafolio/WSGestionarAnuncio.xsd_1.xsd"/>
 </catalog>

@@ -1,5 +1,9 @@
 <?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI (http://jax-ws.java.net). RI's version is Metro/2.3.2-b608 (trunk-7979; 2015-01-21T12:50:19+0000) JAXWS-RI/2.2.11-b150120.1832 JAXWS-API/2.2.12 JAXB-RI/2.2.12-b141219.1637 JAXB-API/2.2.13-b141020.1521 svn-revision#unknown. --><xs:schema xmlns:tns="http://service.portafolio.com/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://service.portafolio.com/">
 
+<xs:element name="actualizarActivoProducto" type="tns:actualizarActivoProducto"/>
+
+<xs:element name="actualizarActivoProductoResponse" type="tns:actualizarActivoProductoResponse"/>
+
 <xs:element name="actualizarProducto" type="tns:actualizarProducto"/>
 
 <xs:element name="actualizarProductoResponse" type="tns:actualizarProductoResponse"/>
@@ -13,6 +17,10 @@
 <xs:element name="listarProductoEmpresa" type="tns:listarProductoEmpresa"/>
 
 <xs:element name="listarProductoEmpresaResponse" type="tns:listarProductoEmpresaResponse"/>
+
+<xs:element name="listarProductoPorRangoFechas" type="tns:listarProductoPorRangoFechas"/>
+
+<xs:element name="listarProductoPorRangoFechasResponse" type="tns:listarProductoPorRangoFechasResponse"/>
 
 <xs:element name="listarProductoResponse" type="tns:listarProductoResponse"/>
 
@@ -94,6 +102,18 @@
 </xs:sequence>
 </xs:complexType>
 
+<xs:complexType name="actualizarActivoProducto">
+<xs:sequence>
+<xs:element name="idProducto" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="actualizarActivoProductoResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:boolean"/>
+</xs:sequence>
+</xs:complexType>
+
 <xs:complexType name="listarTipoProducto">
 <xs:sequence/>
 </xs:complexType>
@@ -109,6 +129,18 @@
 <xs:element name="descripción" type="xs:string" minOccurs="0"/>
 <xs:element name="idProducto" type="xs:int"/>
 <xs:element name="nombre" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="borrarProductoPorID">
+<xs:sequence>
+<xs:element name="idProducto" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="borrarProductoPorIDResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:boolean"/>
 </xs:sequence>
 </xs:complexType>
 
@@ -133,15 +165,16 @@
 </xs:sequence>
 </xs:complexType>
 
-<xs:complexType name="borrarProductoPorID">
+<xs:complexType name="listarProductoPorRangoFechas">
 <xs:sequence>
-<xs:element name="idProducto" type="xs:int"/>
+<xs:element name="rangoInicial" type="xs:string" minOccurs="0"/>
+<xs:element name="rangoFinal" type="xs:string" minOccurs="0"/>
 </xs:sequence>
 </xs:complexType>
 
-<xs:complexType name="borrarProductoPorIDResponse">
+<xs:complexType name="listarProductoPorRangoFechasResponse">
 <xs:sequence>
-<xs:element name="return" type="xs:boolean"/>
+<xs:element name="return" type="tns:producto" minOccurs="0" maxOccurs="unbounded"/>
 </xs:sequence>
 </xs:complexType>
 </xs:schema>

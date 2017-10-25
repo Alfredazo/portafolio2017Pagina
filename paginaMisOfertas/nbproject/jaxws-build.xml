@@ -106,5 +106,21 @@
         <delete dir="${build.generated.sources.dir}/jax-ws/com/portafolio/servicios/descuento"/>
         <delete dir="${build.generated.dir}/jax-wsCache/WSGestionarDescuento"/>
     </target>
-    <target name="wsimport-client-generate" depends="wsimport-client-WSGestionarUsuario, wsimport-client-WSGestionarPersona, wsimport-client-WSGestionarEmpresa, wsimport-client-WSGestionarProducto, wsimport-client-WSGestionarDescuento"/>
+    <target name="wsimport-client-WSGestionarAnuncio" depends="wsimport-init">
+        <mkdir dir="${build.generated.dir}/jax-wsCache/WSGestionarAnuncio"/>
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/WSGestionarAnuncio" destdir="${build.generated.dir}/jax-wsCache/WSGestionarAnuncio" wsdl="${basedir}/${conf-dir}xml-resources/web-service-references/WSGestionarAnuncio/wsdl/localhost_8080/WSPotafolio/WSGestionarAnuncio.wsdl" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" fork="false" wsdlLocation="http://localhost:8080/WSPotafolio/WSGestionarAnuncio?wsdl" xnocompile="true" xendorsed="true" package="com.portafolio.servicios.ofertas">
+            <depends file="${basedir}/${conf-dir}xml-resources/web-service-references/WSGestionarAnuncio/wsdl/localhost_8080/WSPotafolio/WSGestionarAnuncio.wsdl"/>
+            <produces dir="${build.generated.dir}/jax-wsCache/WSGestionarAnuncio"/>
+        </wsimport>
+        <copy todir="${build.generated.sources.dir}/jax-ws">
+            <fileset dir="${build.generated.dir}/jax-wsCache/WSGestionarAnuncio">
+                <include name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+    <target name="wsimport-client-clean-WSGestionarAnuncio" depends="-init-project">
+        <delete dir="${build.generated.sources.dir}/jax-ws/com/portafolio/servicios/ofertas"/>
+        <delete dir="${build.generated.dir}/jax-wsCache/WSGestionarAnuncio"/>
+    </target>
+    <target name="wsimport-client-generate" depends="wsimport-client-WSGestionarUsuario, wsimport-client-WSGestionarPersona, wsimport-client-WSGestionarEmpresa, wsimport-client-WSGestionarProducto, wsimport-client-WSGestionarDescuento, wsimport-client-WSGestionarAnuncio"/>
 </project>
