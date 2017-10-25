@@ -114,9 +114,10 @@
                                 <div class="ibox-title">
                                     <h5>Mantenedor de OFERTAS</h5>
                                     <div class="text-right">
-                                        <a data-toggle="modal" class="btn btn-primary" href="#modal-agregar">Agregar descuento</a>
-                                        <a data-toggle="modal" class="btn btn-primary" href="#modal-modificar">Modificar descuento</a>
-                                    </div>                                
+                                        <a data-toggle="modal" class="btn btn-primary" href="#modal-agregar">Generar OFERTA</a>
+                                        <a data-toggle="modal" class="btn btn-primary" href="#modal-fechas">Listar por Rango Fechas</a>
+                                        <a data-toggle="modal" class="btn btn-primary" href="#">Recomendación sistema</a>
+                                    </div>     
                                 </div>
                                 <c:out value="${errorGeneral}"/>
                                 <div class="ibox-content">
@@ -133,14 +134,13 @@
                                                 <th data-hide="all">Fecha de termino</th>
                                                 <th data-hide="all">Producto</th>
                                                 <th data-hide="all">Empresa</th>
-                                                <th data-hide="all">Precio</th>
-                                                <th data-hide="all">Acción</th>
+                                                <th data-hide="all">Precio</th>                                                
 
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <!-- Aqui va el metodo Foreach -->
-                                        
+
                                             <c:forEach items="${listarOferta}" var="map" >
                                                 <tr>
                                                     <td>${map.id}</td> 
@@ -153,13 +153,7 @@
                                                     <td>${map.fechatermino}</td>
                                                     <td>${map.producto}</td>
                                                     <td>${map.empresa}</td>
-                                                    <td>${map.precio}</td>                                                 
-                                                    <td>
-                                                        <form action="#" method="POST">
-                                                            <input type="hidden" value="${map.id}" name="idOfertaEscondido">
-                                                            <button type="submit" value="${map.id}" class="btn btn-primary dropdown-toggle">Eliminar</button>
-                                                        </form>  
-                                                    </td>
+                                                    <td>${map.precio}</td>                                                
                                                 </tr>
                                             </c:forEach>
                                         </tbody>
@@ -188,6 +182,32 @@
                     </div>
                 </div>
 
+            </div>
+        </div>
+
+        <div id="modal-fechas" class="modal fade" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <div class="row">
+                            <div><h3 class="m-t-none m-b">Buscar Por Fecha de Caducidad</h3>
+                                <form role="form"  method="post" action="#">
+                                    <div class="form-group">
+                                        Fecha de inicio<br>
+                                        <input type="date" class="form-control" required="" name="fechainicio" value="<c:out value="${fechainicioDev}"/>">
+                                        <c:out value="${fechainicioError}"/>
+                                    </div>
+                                    <div class="form-group">
+                                        Fecha de termino<br>
+                                        <input type="date" class="form-control" required="" name="fechatermino" value="<c:out value="${fechaterminoDev}"/>">
+                                        <c:out value="${fechaterminoError}"/>
+                                    </div>                                    
+                                    <input class="btn btn-primary" type="submit" value="Listar">
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -237,8 +257,8 @@
                                         </select>
                                         <c:out value="${productoError}"/>
                                     </div>
-                                    
-                              
+
+
 
                                     <input class="btn btn-primary" type="submit" value="Agregar descuento">
 
@@ -249,8 +269,6 @@
                 </div>
             </div>
         </div>
-
-        
 
 
         <!-- Mainly scripts -->

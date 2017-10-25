@@ -52,7 +52,7 @@
                             <a href="index.html"><i class="fa fa-th-large"></i> <span class="nav-label">Mantenedores</span> <span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level collapse">                        
                                 <li class="active"><a href="mantenedorEmpresa.htm">Empresa</a></li>
-                                <li><a href="mantenedorDescuentos.htm">OFERTAS</a></li>
+                                <li><a href="mantenedorDescuento.htm">OFERTAS</a></li>
                             </ul>
                         </li>
                     </ul>

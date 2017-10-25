@@ -34,18 +34,17 @@ public class MantenedorDescuentoController {
                 } else {
                     mav.setViewName("administrador/mantenedorDescuento");
                 }
-                
-                ArrayList<Descuento> listado =(ArrayList<Descuento>) listarDescuentoProductoEmpresa();
+
+                ArrayList<Descuento> listado = (ArrayList<Descuento>) listarDescuentoProductoEmpresa();
                 sesion.setAttribute("listarOferta", listado);
-                ArrayList<Producto> listado2 =(ArrayList<Producto>) listarProducto();
+                ArrayList<Producto> listado2 = (ArrayList<Producto>) listarProducto();
                 sesion.setAttribute("listarProducto", listado2);
-           
                 mav.addObject("nombreSesion", nombre);
                 return mav;
             }
 
         }
-    } 
+    }
 
     private static java.util.List<com.portafolio.service.Producto> listarProducto() {
         com.portafolio.service.WSGestionarProducto_Service service = new com.portafolio.service.WSGestionarProducto_Service();
@@ -59,5 +58,4 @@ public class MantenedorDescuentoController {
         return port.listarDescuentoProductoEmpresa();
     }
 
-   
 }
