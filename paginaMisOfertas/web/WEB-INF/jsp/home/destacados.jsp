@@ -34,7 +34,7 @@
                                     <a aria-expanded="false" role="button" href="home.htm">Inicio</a>
                                 </li>
                                 <li class="dropdown">
-                                    <a href="destacados.htm" class="dropdown-toggle" > Destacados </a>
+                                    <a aria-expanded="false" role="button" href="destacados.htm" class="dropdown-toggle" data-toggle="dropdown"> Destacados </a>
                                 </li>
                                 <li class="dropdown">
                                     <a aria-expanded="false" role="button" href="#" class="dropdown-toggle" data-toggle="dropdown"> En tu ciudad </a>
@@ -63,16 +63,34 @@
                         </div>
                     </nav>
                 </div>
+                <!--El usuario buscara las ofertas aca-->
 
-
-
+                
                 <div class="wrapper wrapper-content">
                     <div class="container">
                         <div class="row">
-                            <div class="col-lg-12">
+                            <form role="form"  method="post" action="destacados.htm">
+                                <div class="form-group pull-righ">
+                                    <div class="col-lg-6 pull-righ">
+                                        <input type="text" class="form-control col-lg-7" placeholder="Ingresa producto u Oferta" required="" name="ofertaBuscar">
+                                    </div>               
+                                    <div class="col-lg-6">
+                                        <input class="btn btn-primary col-lg-6 pull-righ conten-align-rigth" type="submit" value="Buscar">
+                                    </div>
+                                </div>
+                            </form>
+                            <br>
+                            <br>
+                            <div class="col-lg-6 pull-righ">
+                                <h3 class="alert-danger text-center"><c:out value="${erroresGeneral}"/></h3>
+                            </div>
+                            
+                            <br>
+                            <br>
+                            <div class="col-lg-12">                                
                                 <div class="ibox float-e-margins">
                                     <div class="ibox-content">
-                                        <h2>Nuevas Ofertas</h2>
+                                        <h2>Resultado de Busqueda</h2>
                                         <p>
                                         </p>
                                     </div>
@@ -139,139 +157,7 @@
                                         </div>                                       
                                     </div>
                                 </div>
-                            </c:forEach>
-                            <div class="col-lg-12">
-                                <div class="ibox float-e-margins">
-
-                                    <div class="ibox-content">
-                                        <h2>Alimentos y Bebestibles</h2>
-                                        <p>
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <c:forEach items="${listaAlimentos}" var="otro" >
-                                <div class="col-md-4">
-                                    <div class="ibox">
-                                        <div class="ibox-content product-box">
-                                            <div class="product-imitation">
-                                                [ INFO ]
-                                            </div>
-                                            <div class="product-desc">
-                                                <span class="product-price">
-                                                    ${otro.precio}$
-                                                </span>
-                                                <small class="text-muted"></small>
-                                                <h4 class="product-name">${otro.nombreProducto}</h4>
-                                                <div class="small m-t-xs text-center">
-                                                    Producto Destacado
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </c:forEach>
-
-                            <div class="col-lg-12">
-                                <div class="ibox float-e-margins">
-
-                                    <div class="ibox-content">
-                                        <h2>Electronica</h2>
-                                        <p>
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <c:forEach items="${listaElectronica}" var="otro1" >
-                                <div class="col-md-4">
-                                    <div class="ibox">
-                                        <div class="ibox-content product-box">
-                                            <div class="product-imitation">
-                                                [ INFO ]
-                                            </div>
-                                            <div class="product-desc">
-                                                <span class="product-price">
-                                                    ${otro1.precio}$
-                                                </span>
-                                                <small class="text-muted"></small>
-                                                <h4 class="product-name">${otro1.nombreProducto}</h4>
-                                                <div class="small m-t-xs text-center">
-                                                    Producto Destacado
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </c:forEach>
-
-                            <div class="col-lg-12">
-                                <div class="ibox float-e-margins">
-
-                                    <div class="ibox-content">
-                                        <h2>Linea Blanca</h2>
-                                        <p>
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <c:forEach items="${listaLineaBlanca}" var="otro2" >
-                                <div class="col-md-4">
-                                    <div class="ibox">
-                                        <div class="ibox-content product-box">
-                                            <div class="product-imitation">
-                                                [ INFO ]
-                                            </div>
-                                            <div class="product-desc">
-                                                <span class="product-price">
-                                                    ${otro2.precio}$
-                                                </span>
-                                                <small class="text-muted"></small>
-                                                <h4 class="product-name">${otro2.nombreProducto}</h4>
-                                                <div class="small m-t-xs text-center">
-                                                    Producto Destacado
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </c:forEach>
-
-
-                            <div class="col-lg-12">
-                                <div class="ibox float-e-margins">
-
-                                    <div class="ibox-content">
-                                        <h2>Ropa y Calzado</h2>
-                                        <p>
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <c:forEach items="${listaRopa}" var="otro3" >
-                                <div class="col-md-4">
-                                    <div class="ibox">
-                                        <div class="ibox-content product-box">
-                                            <div class="product-imitation">
-                                                [ INFO ]
-                                            </div>
-                                            <div class="product-desc">
-                                                <span class="product-price">
-                                                    ${otro3.precio}$
-                                                </span>
-                                                <small class="text-muted"></small>
-                                                <h4 class="product-name">${otro3.nombreProducto}</h4>
-                                                <div class="small m-t-xs text-center">
-                                                    Producto Destacado
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </c:forEach>
+                            </c:forEach>                            
                         </div>
                         <div class="footer">
                             <div>

@@ -4,11 +4,11 @@
 <xsd:import namespace="http://service.portafolio.com/" schemaLocation="http://localhost:8080/WSPotafolio/WSGestionarDescuento?xsd=1"/>
 </xsd:schema>
 </types>
-<message name="borrarDescuentoPorID">
-<part name="parameters" element="tns:borrarDescuentoPorID"/>
+<message name="actualizarDescuento">
+<part name="parameters" element="tns:actualizarDescuento"/>
 </message>
-<message name="borrarDescuentoPorIDResponse">
-<part name="parameters" element="tns:borrarDescuentoPorIDResponse"/>
+<message name="actualizarDescuentoResponse">
+<part name="parameters" element="tns:actualizarDescuentoResponse"/>
 </message>
 <message name="listarDescuentoProductoEmpresa">
 <part name="parameters" element="tns:listarDescuentoProductoEmpresa"/>
@@ -16,39 +16,49 @@
 <message name="listarDescuentoProductoEmpresaResponse">
 <part name="parameters" element="tns:listarDescuentoProductoEmpresaResponse"/>
 </message>
+<message name="borrarDescuentoPorID">
+<part name="parameters" element="tns:borrarDescuentoPorID"/>
+</message>
+<message name="borrarDescuentoPorIDResponse">
+<part name="parameters" element="tns:borrarDescuentoPorIDResponse"/>
+</message>
 <message name="registrarDescuento">
 <part name="parameters" element="tns:registrarDescuento"/>
 </message>
 <message name="registrarDescuentoResponse">
 <part name="parameters" element="tns:registrarDescuentoResponse"/>
 </message>
-<message name="actualizarDescuento">
-<part name="parameters" element="tns:actualizarDescuento"/>
+<message name="listarPorFiltroNombreOfertaUProducto">
+<part name="parameters" element="tns:listarPorFiltroNombreOfertaUProducto"/>
 </message>
-<message name="actualizarDescuentoResponse">
-<part name="parameters" element="tns:actualizarDescuentoResponse"/>
+<message name="listarPorFiltroNombreOfertaUProductoResponse">
+<part name="parameters" element="tns:listarPorFiltroNombreOfertaUProductoResponse"/>
 </message>
 <portType name="WSGestionarDescuento">
-<operation name="borrarDescuentoPorID">
-<input wsam:Action="http://service.portafolio.com/WSGestionarDescuento/borrarDescuentoPorIDRequest" message="tns:borrarDescuentoPorID"/>
-<output wsam:Action="http://service.portafolio.com/WSGestionarDescuento/borrarDescuentoPorIDResponse" message="tns:borrarDescuentoPorIDResponse"/>
+<operation name="actualizarDescuento">
+<input wsam:Action="http://service.portafolio.com/WSGestionarDescuento/actualizarDescuentoRequest" message="tns:actualizarDescuento"/>
+<output wsam:Action="http://service.portafolio.com/WSGestionarDescuento/actualizarDescuentoResponse" message="tns:actualizarDescuentoResponse"/>
 </operation>
 <operation name="listarDescuentoProductoEmpresa">
 <input wsam:Action="http://service.portafolio.com/WSGestionarDescuento/listarDescuentoProductoEmpresaRequest" message="tns:listarDescuentoProductoEmpresa"/>
 <output wsam:Action="http://service.portafolio.com/WSGestionarDescuento/listarDescuentoProductoEmpresaResponse" message="tns:listarDescuentoProductoEmpresaResponse"/>
 </operation>
+<operation name="borrarDescuentoPorID">
+<input wsam:Action="http://service.portafolio.com/WSGestionarDescuento/borrarDescuentoPorIDRequest" message="tns:borrarDescuentoPorID"/>
+<output wsam:Action="http://service.portafolio.com/WSGestionarDescuento/borrarDescuentoPorIDResponse" message="tns:borrarDescuentoPorIDResponse"/>
+</operation>
 <operation name="registrarDescuento">
 <input wsam:Action="http://service.portafolio.com/WSGestionarDescuento/registrarDescuentoRequest" message="tns:registrarDescuento"/>
 <output wsam:Action="http://service.portafolio.com/WSGestionarDescuento/registrarDescuentoResponse" message="tns:registrarDescuentoResponse"/>
 </operation>
-<operation name="actualizarDescuento">
-<input wsam:Action="http://service.portafolio.com/WSGestionarDescuento/actualizarDescuentoRequest" message="tns:actualizarDescuento"/>
-<output wsam:Action="http://service.portafolio.com/WSGestionarDescuento/actualizarDescuentoResponse" message="tns:actualizarDescuentoResponse"/>
+<operation name="listarPorFiltroNombreOfertaUProducto">
+<input wsam:Action="http://service.portafolio.com/WSGestionarDescuento/listarPorFiltroNombreOfertaUProductoRequest" message="tns:listarPorFiltroNombreOfertaUProducto"/>
+<output wsam:Action="http://service.portafolio.com/WSGestionarDescuento/listarPorFiltroNombreOfertaUProductoResponse" message="tns:listarPorFiltroNombreOfertaUProductoResponse"/>
 </operation>
 </portType>
 <binding name="WSGestionarDescuentoPortBinding" type="tns:WSGestionarDescuento">
 <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
-<operation name="borrarDescuentoPorID">
+<operation name="actualizarDescuento">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>
@@ -66,6 +76,15 @@
 <soap:body use="literal"/>
 </output>
 </operation>
+<operation name="borrarDescuentoPorID">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
 <operation name="registrarDescuento">
 <soap:operation soapAction=""/>
 <input>
@@ -75,7 +94,7 @@
 <soap:body use="literal"/>
 </output>
 </operation>
-<operation name="actualizarDescuento">
+<operation name="listarPorFiltroNombreOfertaUProducto">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>

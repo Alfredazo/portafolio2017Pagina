@@ -6,10 +6,10 @@
     <system systemId="http://localhost:8080/WSPotafolio/WSGestionarPersona?xsd=1" uri="src/conf/xml-resources/web-service-references/WSGestionarPersona/wsdl/localhost_8080/WSPotafolio/WSGestionarPersona.xsd_1.xsd"/>
     <system systemId="http://localhost:8080/WSPotafolio/WSGestionarEmpresa?wsdl" uri="src/conf/xml-resources/web-service-references/WSGestionarEmpresa/wsdl/localhost_8080/WSPotafolio/WSGestionarEmpresa.wsdl"/>
     <system systemId="http://localhost:8080/WSPotafolio/WSGestionarEmpresa?xsd=1" uri="src/conf/xml-resources/web-service-references/WSGestionarEmpresa/wsdl/localhost_8080/WSPotafolio/WSGestionarEmpresa.xsd_1.xsd"/>
-    <system systemId="http://localhost:8080/WSPotafolio/WSGestionarDescuento?wsdl" uri="src/conf/xml-resources/web-service-references/WSGestionarDescuento/wsdl/localhost_8080/WSPotafolio/WSGestionarDescuento.wsdl"/>
-    <system systemId="http://localhost:8080/WSPotafolio/WSGestionarDescuento?xsd=1" uri="src/conf/xml-resources/web-service-references/WSGestionarDescuento/wsdl/localhost_8080/WSPotafolio/WSGestionarDescuento.xsd_1.xsd"/>
     <system systemId="http://localhost:8080/WSPotafolio/WSGestionarProducto?wsdl" uri="src/conf/xml-resources/web-service-references/WSGestionarProducto/wsdl/localhost_8080/WSPotafolio/WSGestionarProducto.wsdl"/>
     <system systemId="http://localhost:8080/WSPotafolio/WSGestionarProducto?xsd=1" uri="src/conf/xml-resources/web-service-references/WSGestionarProducto/wsdl/localhost_8080/WSPotafolio/WSGestionarProducto.xsd_1.xsd"/>
     <system systemId="http://localhost:8080/WSPotafolio/WSGestionarAnuncio?wsdl" uri="src/conf/xml-resources/web-service-references/WSGestionarAnuncio/wsdl/localhost_8080/WSPotafolio/WSGestionarAnuncio.wsdl"/>
     <system systemId="http://localhost:8080/WSPotafolio/WSGestionarAnuncio?xsd=1" uri="src/conf/xml-resources/web-service-references/WSGestionarAnuncio/wsdl/localhost_8080/WSPotafolio/WSGestionarAnuncio.xsd_1.xsd"/>
+    <system systemId="http://localhost:8080/WSPotafolio/WSGestionarDescuento?wsdl" uri="src/conf/xml-resources/web-service-references/WSGestionarDescuento/wsdl/localhost_8080/WSPotafolio/WSGestionarDescuento.wsdl"/>
+    <system systemId="http://localhost:8080/WSPotafolio/WSGestionarDescuento?xsd=1" uri="src/conf/xml-resources/web-service-references/WSGestionarDescuento/wsdl/localhost_8080/WSPotafolio/WSGestionarDescuento.xsd_1.xsd"/>
 </catalog>

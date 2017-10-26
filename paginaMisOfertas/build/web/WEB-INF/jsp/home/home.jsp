@@ -34,7 +34,7 @@
                                     <a aria-expanded="false" role="button" href="home.htm">Inicio</a>
                                 </li>
                                 <li class="dropdown">
-                                    <a aria-expanded="false" role="button" href="#" class="dropdown-toggle" data-toggle="dropdown"> Destacados </a>
+                                    <a href="destacados.htm" class="dropdown-toggle" > Destacados </a>
                                 </li>
                                 <li class="dropdown">
                                     <a aria-expanded="false" role="button" href="#" class="dropdown-toggle" data-toggle="dropdown"> En tu ciudad </a>

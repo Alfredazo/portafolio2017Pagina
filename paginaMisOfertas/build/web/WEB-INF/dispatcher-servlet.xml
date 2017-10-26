@@ -54,6 +54,7 @@
                 
                 
                 <prop key="listaRecomendacion.htm">listaRecomendacionController</prop>
+                <prop key="destacados.htm">destacadoController</prop>
                 
                 
             </props>
@@ -156,8 +157,11 @@
     />  
       
     <bean id="listaRecomendacionController"
-            class="com.portafolio.servicios.ListaRecomendacionController"
+          class="com.portafolio.servicios.ListaRecomendacionController"
     />  
 
+    <bean id="destacadoController"
+            class="com.portafolio.servicios.DestacadoController"
+    />  
    
 </beans>

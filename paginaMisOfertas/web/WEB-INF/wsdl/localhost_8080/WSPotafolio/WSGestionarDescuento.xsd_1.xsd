@@ -12,6 +12,10 @@
 
 <xs:element name="listarDescuentoProductoEmpresaResponse" type="tns:listarDescuentoProductoEmpresaResponse"/>
 
+<xs:element name="listarPorFiltroNombreOfertaUProducto" type="tns:listarPorFiltroNombreOfertaUProducto"/>
+
+<xs:element name="listarPorFiltroNombreOfertaUProductoResponse" type="tns:listarPorFiltroNombreOfertaUProductoResponse"/>
+
 <xs:element name="registrarDescuento" type="tns:registrarDescuento"/>
 
 <xs:element name="registrarDescuentoResponse" type="tns:registrarDescuentoResponse"/>
@@ -52,6 +56,7 @@
 <xs:element name="condiciones" type="xs:string" minOccurs="0"/>
 <xs:element name="fechaInicio" type="xs:string" minOccurs="0"/>
 <xs:element name="fechaTermino" type="xs:string" minOccurs="0"/>
+<xs:element name="activo" type="xs:string" minOccurs="0"/>
 <xs:element name="idProducto" type="xs:int"/>
 </xs:sequence>
 </xs:complexType>
@@ -90,6 +95,18 @@
 <xs:complexType name="registrarDescuentoResponse">
 <xs:sequence>
 <xs:element name="return" type="xs:boolean"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="listarPorFiltroNombreOfertaUProducto">
+<xs:sequence>
+<xs:element name="textoFiltrado" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="listarPorFiltroNombreOfertaUProductoResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:descuento" minOccurs="0" maxOccurs="unbounded"/>
 </xs:sequence>
 </xs:complexType>
 </xs:schema>
