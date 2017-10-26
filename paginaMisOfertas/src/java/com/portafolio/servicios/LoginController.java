@@ -70,7 +70,6 @@ public class LoginController {
                     sesion.setAttribute("nivelUsuarioSesion", nivelUsuario);
 
                     return new ModelAndView("redirect:/mantenedorUsuario.htm");
-
                 default:
                     ModelAndView mavHome = new ModelAndView("");
                     mavHome.setViewName("home/home");

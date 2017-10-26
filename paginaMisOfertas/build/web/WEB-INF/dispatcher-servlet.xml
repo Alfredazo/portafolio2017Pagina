@@ -49,10 +49,13 @@
                 
                 <prop key="agregarDescuento.htm">agregarDescuentoController</prop>
                 <prop key="eliminarDescuento.htm">eliminarDescuentoController</prop>
+                <prop key="modificarDescuento.htm">modificarDescuentoController</prop>                
                 <prop key="modificarDescuento.htm">modificarDescuentoController</prop>
                 
                 
-
+                <prop key="listaRecomendacion.htm">listaRecomendacionController</prop>
+                
+                
             </props>
         </property>
     </bean>
@@ -115,7 +118,7 @@
     />
     
     <bean id="eliminarUsuarioController"
-           class="com.portafolio.servicios.EliminarUsuarioController"
+          class="com.portafolio.servicios.EliminarUsuarioController"
     />
      
     <bean id="agregarEmpresaController"
@@ -123,10 +126,10 @@
     />
     
     <bean id="eliminarEmpresaController"
-             class="com.portafolio.servicios.EliminarEmpresaController"
+          class="com.portafolio.servicios.EliminarEmpresaController"
     />
     <bean id="modificarEmpresaController"
-             class="com.portafolio.servicios.ModificarEmpresaController"
+          class="com.portafolio.servicios.ModificarEmpresaController"
     />
    
     <bean id="agregarProductoController"
@@ -134,10 +137,10 @@
     />
     
     <bean id="eliminarProductoController"
-             class="com.portafolio.servicios.EliminarProductoController"
+          class="com.portafolio.servicios.EliminarProductoController"
     />
     <bean id="modificarProductoController"
-             class="com.portafolio.servicios.ModificarProductoController"
+          class="com.portafolio.servicios.ModificarProductoController"
     />
     
     <bean id="agregarDescuentoController"
@@ -145,10 +148,16 @@
     />
     
     <bean id="eliminarDescuentoController"
-             class="com.portafolio.servicios.EliminarDescuentoController"
+          class="com.portafolio.servicios.EliminarDescuentoController"
     />
     
     <bean id="modificarDescuentoController"
-             class="com.portafolio.servicios.ModificarDescuentoController"
-    />
+          class="com.portafolio.servicios.ModificarDescuentoController"
+    />  
+      
+    <bean id="listaRecomendacionController"
+            class="com.portafolio.servicios.ListaRecomendacionController"
+    />  
+
+   
 </beans>

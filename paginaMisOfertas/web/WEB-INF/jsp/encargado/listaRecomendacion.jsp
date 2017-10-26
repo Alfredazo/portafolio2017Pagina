@@ -72,8 +72,6 @@
                             <li>
                                 <span class="m-r-sm text-muted welcome-message">Bienvenido a MisOfertas Sr(a):<c:out value="${nombreSesion}"/></span>
                             </li>
-
-
                             <li>
                                 <a href="cerrarSesion.htm">
                                     <i class="fa fa-sign-out"></i> Cerrar sesión
@@ -95,8 +93,11 @@
                             <li>
                                 <a>Mantenedores</a>
                             </li>
+                            <li>
+                                <a href="mantenedorDescuento.htm">OFERTA</a>
+                            </li>
                             <li class="active">
-                                <strong>OFERTA</strong>
+                                <strong>Listado Posibles Productos</strong>
                             </li>
                         </ol>
                     </div>
@@ -121,39 +122,48 @@
                                 </div>
                                 <c:out value="${errorGeneral}"/>
                                 <div class="ibox-content">
-                                    <table class="footable table table-stripped toggle-arrow-tiny" name="tabEmpresa">
+                                    <table class="footable table table-stripped toggle-arrow-tiny" name="tabLista">
                                         <thead>
                                             <tr>                                             
-                                                <th data-hide="all">Id</th>
+                                                <th data-hide="all">Dias Restantes Producto Caducado</th>
                                                 <th data-hide="all">Nombre</th>
-                                                <th data-hide="all">Descripción</th>
-                                                <th data-hide="all">Descuento</th>
-                                                <th data-hide="all">Imagen</th>                                   
-                                                <th data-hide="all">Condiciones</th>
-                                                <th data-hide="all">Fecha de inicio</th>
-                                                <th data-hide="all">Fecha de termino</th>
-                                                <th data-hide="all">Producto</th>
-                                                <th data-hide="all">Empresa</th>
-                                                <th data-hide="all">Precio</th>                                                
-
+                                                <th data-hide="all">Fecha Ingreso</th>
+                                                <th data-hide="all">Fecha Vencimiento</th>
+                                                <th data-hide="all">ID</th>                                                                                                                        
+                                                <th data-hide="all">Publicado en HOME</th>                                                                                                                        
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <!-- Aqui va el metodo Foreach -->
-
-                                            <c:forEach items="${listarOferta}" var="map" >
+                                            <c:forEach items="${listadoSistema}" var="map" >
                                                 <tr>
-                                                    <td>${map.id}</td> 
+                                                    <td>
+                                                        <c:if test="${map.diasRestantesCaducidad <= -1}">
+                                                            Caducado
+                                                        </c:if> 
+
+                                                        <c:if test="${map.diasRestantesCaducidad >= 0}">
+                                                            ${map.diasRestantesCaducidad}
+                                                        </c:if>
+                                                    </td> 
                                                     <td>${map.nombre}</td>
-                                                    <td>${map.descripcion}</td>
-                                                    <td>${map.descuento}</td>
-                                                    <td>${map.imagen}</td>
-                                                    <td>${map.condiciones}</td>
-                                                    <td>${map.fechainicio}</td>
-                                                    <td>${map.fechatermino}</td>
-                                                    <td>${map.producto}</td>
-                                                    <td>${map.empresa}</td>
-                                                    <td>${map.precio}</td>                                                
+                                                    <td>${map.fechaIngreso}</td>
+                                                    <td>${map.fechaCaducidad}</td>
+                                                    <td>${map.id}</td> 
+                                                    <td>
+                                                        <form action="listaRecomendacion.htm" method="POST">
+                                                            <input type="hidden" value="${map.id}" name="idProductoPublicar">
+                                                            <button type="submit" class="btn btn-primary dropdown-toggle">
+                                                                <c:if test="${map.activo == 1}">
+                                                                    OCULTAR PUBLICACION
+                                                                </c:if>
+                                                                <c:if test="${map.activo == 0}">
+                                                                 &nbsp;&nbsp;&nbsp;&nbsp;PUBLICAR EN HOME&nbsp;&nbsp;
+                                                                </c:if>
+
+                                                            </button>
+                                                        </form>  
+                                                    </td>
                                                 </tr>
                                             </c:forEach>
                                         </tbody>
