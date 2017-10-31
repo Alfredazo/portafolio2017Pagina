@@ -56,6 +56,8 @@
                 <prop key="listaRecomendacion.htm">listaRecomendacionController</prop>
                 <prop key="destacados.htm">destacadoController</prop>
                 
+                <prop key="generarcupon.htm">generarCuponController</prop>
+                
                 
             </props>
         </property>
@@ -162,6 +164,9 @@
 
     <bean id="destacadoController"
             class="com.portafolio.servicios.DestacadoController"
+    />  
+    <bean id="generarCuponController"
+            class="com.portafolio.servicios.GenerarCuponController"
     />  
    
 </beans>

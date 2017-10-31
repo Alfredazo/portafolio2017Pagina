@@ -13,7 +13,7 @@
         <link href="<c:url value="/Resources/font-awesome/css/font-awesome.css"/>" rel="stylesheet">
         <link href="<c:url value="/Resources/css/animate.css"/>" rel="stylesheet">
         <link href="<c:url value="/Resources/css/style.css"/>" rel="stylesheet">
-
+        <link href="<c:url value="/Resources/css/starrr.css"/>"rel="stylesheet" type="text/css"/>
     </head>
 
     <body class="top-navigation">
@@ -49,13 +49,17 @@
                                 <li class="dropdown">
                                     <a aria-expanded="false" role="button" href="#" class="dropdown-toggle" data-toggle="dropdown"> Tiendas </a>
                                 </li>
+                                <li class="dropdown">
+                                    <a aria-expanded="false" role="button" href="#"> Valorar PRODUCTOS </a>
+                                </li>
+                                 <li class="dropdown">
+                                    <a aria-expanded="false" role="button" href="generarcupon.htm"> Generar Cupon </a>
+                                </li>
                             </ul>
                             <ul class="nav navbar-top-links navbar-right">
                                 <li class="dropdown">
                                     <a aria-expanded="false" role="button" href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user-circle-o"></i><span class="caret"></span></a>
                                     <ul role="menu" class="dropdown-menu">
-                                        <li><a href="registrar.htm"><i class="fa fa-address-book-o"></i> Crear Cuenta</a></li>                            
-                                        <li><a href="login.htm"><i class="fa fa-sign-out"></i> Iniciar sesión </a></li>
                                         <li><a href="cerrarSesion.htm"><i class="fa fa-sign-in"></i> Cerrar sesión</a></li>
                                     </ul>
                                 </li>
@@ -96,6 +100,11 @@
                                                 <div class="m-t text-righ">
                                                     <a data-toggle="modal" href="#modal-oferta-${map.id}" class="btn btn-xs btn-outline btn-primary">Más Detalles <i class="fa fa-long-arrow-right"></i> </a>
                                                 </div>
+                                                </p>
+                                                <hr/>
+                                                Calificar: <span class="Estrellas"></span>
+                                                <hr/>
+                                                <p>
                                             </div>
                                             <div id="modal-oferta-${map.id}" class="modal fade" aria-hidden="true">
                                                 <div class="modal-dialog">
@@ -160,7 +169,7 @@
                                             </div>
                                             <div class="product-desc">
                                                 <span class="product-price">
-                                                    $ ${otro.precio}
+                                                    ${otro.precio}$
                                                 </span>
                                                 <small class="text-muted"></small>
                                                 <h4 class="product-name">${otro.nombreProducto}</h4>
@@ -193,7 +202,7 @@
                                             </div>
                                             <div class="product-desc">
                                                 <span class="product-price">
-                                                   $ ${otro1.precio}
+                                                    ${otro1.precio}$
                                                 </span>
                                                 <small class="text-muted"></small>
                                                 <h4 class="product-name">${otro1.nombreProducto}</h4>
@@ -226,7 +235,7 @@
                                             </div>
                                             <div class="product-desc">
                                                 <span class="product-price">
-                                                  $ ${otro.precio}
+                                                    ${otro2.precio}$
                                                 </span>
                                                 <small class="text-muted"></small>
                                                 <h4 class="product-name">${otro2.nombreProducto}</h4>
@@ -260,7 +269,7 @@
                                             </div>
                                             <div class="product-desc">
                                                 <span class="product-price">
-                                                   $ ${otro.precio}
+                                                    ${otro3.precio}$
                                                 </span>
                                                 <small class="text-muted"></small>
                                                 <h4 class="product-name">${otro3.nombreProducto}</h4>
@@ -287,6 +296,7 @@
                 <!-- Mainly scripts -->
                 <script src="<c:url value="/Resources/js/jquery-3.1.1.min.js"/>"></script>
                 <script src="<c:url value="/Resources/js/bootstrap.min.js"/>"></script>
+                <script src="<c:url value="/Resources/js/starrr.js"/>"></script>
                 <script src="<c:url value="/Resources/js/plugins/metisMenu/jquery.metisMenu.js"/>"></script>
                 <script src="<c:url value="/Resources/js/plugins/slimscroll/jquery.slimscroll.min.js"/>"></script>
 
@@ -381,7 +391,31 @@
 
                     });
                 </script>
+                <script>
+                    $(document).ready(function () {
+                        $.ajax({
+                            type: "GET",
+                            url: "http://localhost:8080/WSPotafolio/WSGestionarUsuario?WSDL",
+                            dataType: "xml",
+                            contentType: 'application/xml; charset=utf-8',
+                            success: function (xml) {
+                                alert("Primer Alert" + $(xml).find('retornarUltimoIDUsuario'));
+                            },
+                            error: function (err) {
+                                alert('err');
+                            }
+                        });
+                    });
+                </script>
 
+                <script>
+                    $('.Estrellas').starrr({
+                        rating: 1,
+                        change: function (e, valor) {
+                            alert(valor);
+                        }
+                    });
+                </script>   
                 </body>
 
                 </html>

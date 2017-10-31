@@ -46,7 +46,7 @@ public class LoginController {
                     sesion.setAttribute("nombre", email);
                     sesion.setAttribute("nivelUsuarioSesion", nivelUsuario);
 
-                    return new ModelAndView("redirect:/consumidor.htm");
+                    return new ModelAndView("redirect:/home.htm");
                 case 1:
                     /*Encargado de Tienda*/
                     ArrayList<Empresa> listadox;

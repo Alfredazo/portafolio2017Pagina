@@ -4,20 +4,16 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/Users/Alfredazo/Desktop/portafolio2017Pagina/paginaMisOfertas/web/WEB-INF/dispatcher-servlet.xml</file>
-            <file>file:/C:/Users/Alfredazo/Desktop/portafolio2017Pagina/paginaMisOfertas/src/java/com/portafolio/servicios/AgregarDescuentoController.java</file>
-            <file>file:/C:/Users/Alfredazo/Desktop/portafolio2017Pagina/paginaMisOfertas/web/WEB-INF/jsp/encargado/mantenedorDescuento.jsp</file>
-            <file>file:/C:/Users/Alfredazo/Desktop/portafolio2017Pagina/paginaMisOfertas/web/WEB-INF/jsp/home/pruebaImagen.jsp</file>
-            <file>file:/C:/Users/Alfredazo/Desktop/portafolio2017Pagina/paginaMisOfertas/src/java/com/portafolio/servicios/MantenedorDescuentoController.java</file>
-            <file>file:/C:/Users/Alfredazo/Desktop/portafolio2017Pagina/paginaMisOfertas/web/WEB-INF/jsp/administrador/mantenedorProducto.jsp</file>
-            <file>file:/C:/Users/Alfredazo/Desktop/portafolio2017Pagina/paginaMisOfertas/src/java/com/portafolio/servicios/PruebaImagenController.java</file>
-            <file>file:/C:/Users/Alfredazo/Desktop/portafolio2017Pagina/paginaMisOfertas/src/java/com/portafolio/servicios/HomeController.java</file>
-            <file>file:/C:/Users/Alfredazo/Desktop/portafolio2017Pagina/paginaMisOfertas/web/WEB-INF/jsp/administrador/mantenedorEmpresa.jsp</file>
-            <file>file:/C:/Users/Alfredazo/Desktop/portafolio2017Pagina/paginaMisOfertas/src/java/com/portafolio/servicios/AdminsitradorController.java</file>
-            <file>file:/C:/Users/Alfredazo/Desktop/portafolio2017Pagina/paginaMisOfertas/web/WEB-INF/jsp/administrador/mantenedorDescuento.jsp</file>
-            <file>file:/C:/Users/Alfredazo/Desktop/portafolio2017Pagina/paginaMisOfertas/web/WEB-INF/applicationContext.xml</file>
-            <file>file:/C:/Users/Alfredazo/Desktop/portafolio2017Pagina/paginaMisOfertas/web/WEB-INF/jsp/encargado/mantenedorEmpresa.jsp</file>
-            <file>file:/C:/Users/Alfredazo/Desktop/portafolio2017Pagina/paginaMisOfertas/web/WEB-INF/web.xml</file>
-            <file>file:/C:/Users/Alfredazo/Desktop/portafolio2017Pagina/paginaMisOfertas/web/WEB-INF/jax-ws-catalog.xml</file>
+            <file>file:/C:/Users/Alfredazo/Desktop/portafolio2017Pagina/paginaMisOfertas/src/java/com/portafolio/modelo/GenerarPDF.java</file>
+            <file>file:/C:/Users/Alfredazo/Desktop/portafolio2017Pagina/paginaMisOfertas/web/WEB-INF/jsp/consumidor/home.jsp</file>
+            <file>file:/C:/Users/Alfredazo/Desktop/portafolio2017Pagina/paginaMisOfertas/src/java/com/portafolio/servicios/ConsumidorController.java</file>
+            <file>file:/C:/Users/Alfredazo/Desktop/portafolio2017Pagina/paginaMisOfertas/src/java/com/portafolio/servicios/ListaRecomendacionController.java</file>
+            <file>file:/C:/Users/Alfredazo/Desktop/portafolio2017Pagina/paginaMisOfertas/web/WEB-INF/jsp/consumidor/consumidor.jsp</file>
+            <file>file:/C:/Users/Alfredazo/Desktop/portafolio2017Pagina/paginaMisOfertas/src/java/com/portafolio/servicios/GenerarCuponController.java</file>
+            <file>file:/C:/Users/Alfredazo/Desktop/portafolio2017Pagina/paginaMisOfertas/src/java/com/portafolio/servicios/DestacadoController.java</file>
+            <file>file:/C:/Users/Alfredazo/Desktop/portafolio2017Pagina/paginaMisOfertas/web/WEB-INF/jsp/consumidor/generarcupon.jsp</file>
+            <file>file:/C:/Users/Alfredazo/Desktop/portafolio2017Pagina/paginaMisOfertas/web/WEB-INF/jsp/home/destacados.jsp</file>
+            <file>file:/C:/Users/Alfredazo/Desktop/portafolio2017Pagina/paginaMisOfertas/nbproject/build-impl.xml</file>
         </group>
     </open-files>
 </project-private>

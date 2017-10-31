@@ -3,6 +3,7 @@ package com.portafolio.servicios;
 import com.portafolio.servicios.descuento.Descuento;
 import com.portafolio.servicios.ofertas.Anuncio;
 import java.util.ArrayList;
+import javax.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -13,9 +14,15 @@ import org.springframework.web.servlet.ModelAndView;
 public class HomeController {
 
     @RequestMapping(method = RequestMethod.GET)
-    public ModelAndView mantenedorDescuento() {
+    public ModelAndView mantenedorDescuento(HttpSession sesion) {
         ModelAndView mav = new ModelAndView();
-        mav.setViewName("home/home");
+         String nombre = (String) sesion.getAttribute("nombre");
+        if (nombre == null) {
+            mav.setViewName("home/home");
+        }else{
+            mav.setViewName("consumidor/home");
+        }
+               
 
         ArrayList<Anuncio> listaAlimentos= (ArrayList<Anuncio>) mostrarAnuncioAlimentosHOME();
         ArrayList<Anuncio> listaElectronica= (ArrayList<Anuncio>) mostrarAnuncioElectronicaHOME();
