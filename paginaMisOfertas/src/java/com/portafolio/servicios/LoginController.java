@@ -45,6 +45,19 @@ public class LoginController {
                     /*Consumidor*/
                     sesion.setAttribute("nombre", email);
                     sesion.setAttribute("nivelUsuarioSesion", nivelUsuario);
+                    /*Devolver los datos de la persona*/
+                    int resultado = email.indexOf("@");
+                    if (resultado != -1) {
+                        /*Correo*/
+                        ArrayList<PersonaUsuario> listado;
+                        listado = (ArrayList<PersonaUsuario>) listarInformacionCompletaDelUsuariosPorCorreoClave(email, clave);
+                        sesion.setAttribute("listadoInformacionUsuario", listado);
+                    } else {
+                        /*NombreUsuario*/
+                        ArrayList<PersonaUsuario> listado;
+                        listado = (ArrayList<PersonaUsuario>) listarInformacionCompletaDelUsuariosPorUsuarioClave(email, clave);
+                        sesion.setAttribute("listadoInformacionUsuario", listado);
+                    }
 
                     return new ModelAndView("redirect:/home.htm");
                 case 1:
@@ -65,7 +78,7 @@ public class LoginController {
                     return new ModelAndView("redirect:/gerente.htm");
 
                 case 3:
-                    /*Administrador*/                   
+                    /*Administrador*/
                     sesion.setAttribute("nombre", email);
                     sesion.setAttribute("nivelUsuarioSesion", nivelUsuario);
 
@@ -106,6 +119,18 @@ public class LoginController {
         com.portafolio.empresaService.WSGestionarEmpresa_Service service = new com.portafolio.empresaService.WSGestionarEmpresa_Service();
         com.portafolio.empresaService.WSGestionarEmpresa port = service.getWSGestionarEmpresaPort();
         return port.listarEmpresas();
+    }
+
+    private static java.util.List<com.portafolio.servicios.PersonaUsuario> listarInformacionCompletaDelUsuariosPorCorreoClave(java.lang.String correoUsuario, java.lang.String claveUsuario) {
+        com.portafolio.servicios.WSGestionarUsuario_Service service = new com.portafolio.servicios.WSGestionarUsuario_Service();
+        com.portafolio.servicios.WSGestionarUsuario port = service.getWSGestionarUsuarioPort();
+        return port.listarInformacionCompletaDelUsuariosPorCorreoClave(correoUsuario, claveUsuario);
+    }
+
+    private static java.util.List<com.portafolio.servicios.PersonaUsuario> listarInformacionCompletaDelUsuariosPorUsuarioClave(java.lang.String nombreUsuario, java.lang.String claveUsuario) {
+        com.portafolio.servicios.WSGestionarUsuario_Service service = new com.portafolio.servicios.WSGestionarUsuario_Service();
+        com.portafolio.servicios.WSGestionarUsuario port = service.getWSGestionarUsuarioPort();
+        return port.listarInformacionCompletaDelUsuariosPorUsuarioClave(nombreUsuario, claveUsuario);
     }
 
 }

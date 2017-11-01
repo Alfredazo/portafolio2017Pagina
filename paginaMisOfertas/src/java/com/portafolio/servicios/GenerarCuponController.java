@@ -6,6 +6,8 @@
 package com.portafolio.servicios;
 
 import com.portafolio.modelo.GenerarPDF;
+import java.awt.Desktop;
+import java.io.File;
 import java.util.Calendar;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -19,16 +21,51 @@ import org.springframework.web.servlet.ModelAndView;
 public class GenerarCuponController {
 
     @RequestMapping(method = RequestMethod.GET)
-    public ModelAndView generarCupon() {
-        ModelAndView mav = new ModelAndView();
-        mav.setViewName("consumidor/generarcupon");
+    public ModelAndView generarCupon(HttpSession sesion) {
+        String nombre = (String) sesion.getAttribute("nombre");
+        if (nombre == null) {
+            return new ModelAndView("redirect:/login.htm");
+        } else {
+            int nivelUsuarioSesion = (int) sesion.getAttribute("nivelUsuarioSesion");
+            if (nivelUsuarioSesion == 1 || nivelUsuarioSesion == 2) {
+                return new ModelAndView("redirect:/home.htm");
+            } else {
+                /*crear la vista aca recien*/
+                ModelAndView mav = new ModelAndView();
+                mav.setViewName("consumidor/generarcupon");
+                return mav;
+            }
 
-        return mav;
+        }
     }
+
     @RequestMapping(method = RequestMethod.POST)
     public ModelAndView filtrarPorTexto(HttpServletRequest request, HttpSession sesion) {
-
         /*metodo post + redirección*/
+        String listadoDescuento = "";
+        String cantidadDescuento = "";
+        String primerNombre = request.getParameter("primerNombre");
+        String primerApellido = request.getParameter("apellidoP");
+        String segundoApellido = request.getParameter("apellidoM");   
+
+        String nombreUsuario = primerNombre+" "+primerApellido+" "+segundoApellido.charAt(0);
+        
+        /*Validar Cuantos puntos tiene  y realizar % Descuento*/
+        int cantidadPuntos = Integer.parseInt(request.getParameter("cantidadPuntos"));
+        if (cantidadPuntos >= 0 && cantidadPuntos <= 100) {
+            listadoDescuento = "Alimentos\n";
+            cantidadDescuento = "5%";
+            /*Ingresar metodo que reste lo que tiene*/
+        } else if (cantidadPuntos > 100 && cantidadPuntos <= 500) {
+            listadoDescuento = "Alimentos\nElectronica\nLinea Blanca";
+            cantidadDescuento = "10%";
+            /*Ingresar metodo que reste lo que tiene*/
+        } else if (cantidadPuntos > 500) {
+            listadoDescuento = "Alimentos\nElectronica\nLinea Blanca\nRopa";
+            cantidadDescuento = "15%";
+            /*Ingresar metodo que reste lo que tiene*/
+        }
+
         ModelAndView mav = new ModelAndView();
         mav.setViewName("consumidor/generarcupon");
         try {
@@ -37,9 +74,16 @@ public class GenerarCuponController {
             String hola = fecha.getTime().toString();
             hola = hola.replace(" ", "");
             hola = hola.replace(":", "");
+            String nombreSistema = System.getProperty("user.name");
+            String urlImagen = "C:\\Users\\" + nombreSistema + "\\Desktop\\portafolio2017Pagina\\paginaMisOfertas\\web\\Resources\\img\\Logo Mis ofertas.png";
+            String urlGuardar = "C:\\Users\\" + nombreSistema + "\\Downloads\\" + hola;
+            String formato = ".pdf";
             System.out.println(hola);
-            g.generarPDF("***********************", "CUPON", "DESCUENTO", "Pagina Mis Ofertas", "Alimentos\nRopa\nLinea Blancan\nElectronica", "Valido hasta 11/11/11", "C:\\Users\\Alfredazo\\Desktop\\GeneradoPdf\\GeneradorPdf\\src\\generadorpdf\\img\\Logo Mis ofertas.png", "C:\\Users\\Alfredazo\\Desktop\\cosoPDF\\" + hola + ".pdf", "1234567");
-
+            g.generarPDF("***********************", "CUPON", "DESCUENTO", "Pagina Mis Ofertas", listadoDescuento, "Usuario:"+nombreUsuario+"."+" Porcentaje Descuento:" + cantidadDescuento, urlImagen, urlGuardar + formato, "1234327");
+            File path = new File(urlGuardar + formato);
+            System.out.println(urlGuardar);
+            
+            mav.addObject("erroresGeneral","Se ha guardado su cupon en "+urlGuardar);
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
