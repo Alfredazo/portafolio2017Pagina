@@ -51,9 +51,10 @@
                         <li>
                             <a href="index.html"><i class="fa fa-th-large"></i> <span class="nav-label">Mantenedores</span> <span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level collapse"> 
-                                <li><a href="mantenedorUsuario.htm">Usuario</a></li>
+                                 <li><a href="mantenedorUsuario.htm">Usuario</a></li>
                                 <li><a href="mantenedorEmpresa.htm">Empresa</a></li>
                                 <li class="active"><a href="mantenedorProducto.htm">Producto</a></li>
+                                <li ><a href="mantenedorDescuento.htm">Descuento</a></li>
                             </ul>
                         </li>
                     </ul>

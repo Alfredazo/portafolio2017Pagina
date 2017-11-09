@@ -226,7 +226,7 @@
                                             </div>
                                             <div class="product-desc">
                                                 <span class="product-price">
-                                                  $ ${otro.precio}
+                                                  $ ${otro2.precio}
                                                 </span>
                                                 <small class="text-muted"></small>
                                                 <h4 class="product-name">${otro2.nombreProducto}</h4>
@@ -260,7 +260,7 @@
                                             </div>
                                             <div class="product-desc">
                                                 <span class="product-price">
-                                                   $ ${otro.precio}
+                                                   $ ${otro3.precio}
                                                 </span>
                                                 <small class="text-muted"></small>
                                                 <h4 class="product-name">${otro3.nombreProducto}</h4>
